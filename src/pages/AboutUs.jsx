@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import "./AboutUs";
+import NavbarComponent from "../components/Navbar";
 
 function AboutUs() {
   return (
     <div className="about-us">
+      
       <header className="about-us-header">
         <h1>About Us</h1>
       </header>

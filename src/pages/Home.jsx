@@ -7,6 +7,7 @@ import {
   faHeadset,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
+import NavbarComponent from "../components/Navbar";
 
 const products = [
   {
@@ -38,6 +39,7 @@ const products = [
 function Home() {
   return (
     <div>
+      <NavbarComponent/>
       <div className="home-container">
         <video autoPlay loop muted className="video-background">
           <source src="/public/video/CebalaHomeVideo.mp4" type="video/mp4" />

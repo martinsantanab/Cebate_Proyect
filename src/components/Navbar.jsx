@@ -4,7 +4,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faInstagram, faFacebook, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import '../App.css'; // Asegúrate de que esta ruta sea correcta según la estructura de tu proyecto
 
 export default function NavbarComponent() {
@@ -41,7 +40,7 @@ export default function NavbarComponent() {
               src="/images/webSite_Clicka/logoclicka.png"
               height="35"
               className="ms-3 d-inline-block align-top"
-              alt="Clicka logo"
+              alt="CEBATE"
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
