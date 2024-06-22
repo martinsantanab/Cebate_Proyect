@@ -37,4 +37,77 @@
 
 /* HOME CSS: */
 
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.info-item {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: none;
+  }
+}
+
+.products-section {
+  padding: 40px 0;
+}
+
+.product-item {
+  margin-bottom: 20px;
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+  width: 100%;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  transition: all 0.3s ease;
+}
+
+.product-info {
+  padding: 15px;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    margin-bottom: 20px;
+  }
+}
+
+/* CSS DE LOS PRODUCTOS MOSTRADOS */
+
 /* FOOTER CSS: */
