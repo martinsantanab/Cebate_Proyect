@@ -11,35 +11,58 @@ import NavbarComponent from "../components/Navbar";
 
 const products = [
   {
-    name: "Name1",
+    name: "Mates",
     count: 45,
-    image: <source src="/public/images/image1.jpg" />,
-    hoverImage: <source src="/public/images/image2.webp" />,
+    image: "/public/images/mate.1.png",
+    hoverColorClass: "hover-celeste",
   },
   {
-    name: "Name2",
+    name: "Bombillas",
     count: 28,
-    image: <source src="/public/images/image2.webp" />,
-    hoverImage: <source src="/public/images/image3.jpg" />,
+    image: "/public/images/bombilla.1.png",
+    hoverColorClass: "hover-amarillo",
   },
   {
-    name: "Name3",
+    name: "Termos",
     count: 23,
-    image: <source src="/public/images/image3.jpg" />,
-    hoverImage: <source src="/public/images/image1.jpg" />,
+    image: "/public/images/termo.1.png",
+    hoverColorClass: "hover-gris",
+    sizeClass: "product-normal",
   },
   {
-    name: "Name4",
+    name: "Materas",
     count: 5,
-    image: <source src="/public/images/image1.jpg" />,
-    hoverImage: <source src="/public/images/image2.webp" />,
+    image: "/public/images/matera.1.png",
+    hoverColorClass: "hover-celeste",
+  },
+];
+const items = [
+  {
+    title: "Title1",
+    text: "This is some text for item 1.",
+    hoverColorClass: "hover-celeste",
+  },
+  {
+    title: "Title2",
+    text: "This is some text for item 2.",
+    hoverColorClass: "hover-amarillo",
+  },
+  {
+    title: "Title3",
+    text: "This is some text for item 3.",
+    hoverColorClass: "hover-gris",
+  },
+  {
+    title: "Title4",
+    text: "This is some text for item 4.",
+    hoverColorClass: "hover-celeste",
   },
 ];
 
 function Home() {
   return (
-    <div>
-      <NavbarComponent/>
+    <>
+      <NavbarComponent />
       <div className="home-container">
         <video autoPlay loop muted className="video-background">
           <source src="/public/video/CebalaHomeVideo.mp4" type="video/mp4" />
@@ -48,25 +71,31 @@ function Home() {
         <div className="overlay">
           <Container>
             <Row>
-              <Col xs={12} md={3} className="info-item">
+              <Col xs={12} md={6} lg={3} className="info-item">
                 <FontAwesomeIcon icon={faTruck} size="2x" />
-                <p>Enviamos dentro de Uruguay</p>
-                <p>Envío express.</p>
+                <p className="fontBold">Enviamos dentro de Uruguay</p>
+                <p className="text-white-50">Envío express.</p>
               </Col>
-              <Col xs={12} md={3} className="info-item">
+              <Col xs={12} md={6} lg={3} className="info-item">
                 <FontAwesomeIcon icon={faUndo} size="2x" />
-                <p>100% Cash Back</p>
-                <p>Tenes 30 días para devolver tu compra.</p>
+                <p className="fontBold">100% Cash Back</p>
+                <p className="text-white-50">
+                  Tenes 30 días para devolver tu compra.
+                </p>
               </Col>
-              <Col xs={12} md={3} className="info-item">
+              <Col xs={12} md={6} lg={3} className="info-item">
                 <FontAwesomeIcon icon={faHeadset} size="2x" />
-                <p>Soporte 24/7</p>
-                <p>Contactanos y te responderemos a la brevedad.</p>
+                <p className="fontBold">Soporte 24/7</p>
+                <p className="text-white-50">
+                  Contactanos y te responderemos a la brevedad.
+                </p>
               </Col>
-              <Col xs={12} md={3} className="info-item">
+              <Col xs={12} md={6} lg={3} className="info-item">
                 <FontAwesomeIcon icon={faLock} size="2x" />
-                <p>100% Pago seguro</p>
-                <p>Tu pago está seguro con nosotros.</p>
+                <p className="fontBold">100% Pago seguro</p>
+                <p className="text-white-50">
+                  Tu pago está seguro con nosotros.
+                </p>
               </Col>
             </Row>
           </Container>
@@ -76,15 +105,11 @@ function Home() {
         <Row>
           {products.map((product, index) => (
             <Col xs={12} md={6} lg={3} key={index} className="product-item">
-              <div className="product-card">
+              <div className={`product-card ${product.hoverColorClass}`}>
                 <img
                   src={product.image}
                   alt={product.name}
                   className="product-image"
-                  onMouseOver={(e) =>
-                    (e.currentTarget.src = product.hoverImage)
-                  }
-                  onMouseOut={(e) => (e.currentTarget.src = product.image)}
                 />
                 <div className="product-info">
                   <h5>{product.name}</h5>
@@ -95,7 +120,22 @@ function Home() {
           ))}
         </Row>
       </Container>
-    </div>
+
+      <Container className="items-section">
+        <Row>
+          {items.map((item, index) => (
+            <Col xs={12} md={6} lg={3} key={index} className="item">
+              <div className={`item-card ${item.hoverColorClass}`}>
+                <div className="item-info">
+                  <h5>{item.title}</h5>
+                  <p>{item.text}</p>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
   );
 }
 
