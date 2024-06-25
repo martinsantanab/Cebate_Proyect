@@ -102,24 +102,71 @@ function Home() {
         </div>
       </div>
       <Container className="products-section">
-        <Row>
-          {products.map((product, index) => (
-            <Col xs={12} md={6} lg={3} key={index} className="product-item">
-              <div className={`product-card ${product.hoverColorClass}`}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
-                <div className="product-info">
-                  <h5>{product.name}</h5>
-                  <p>{product.count}</p>
-                </div>
+    <Row>
+      {/* Primera columna que ocupa la mitad del ancho */}
+      <Col xs={12} md={6} className="product-item d-flex align-items-stretch">
+        <div className={`product-card ${products[0].hoverColorClass} flex-fill`}>
+          <img
+            src={products[0].image}
+            alt={products[0].name}
+            className="product-image"
+          />
+          <div className="product-info">
+            <h5>{products[0].name}</h5>
+            <p>{products[0].count}</p>
+          </div>
+        </div>
+      </Col>
+      {/* Segunda columna que ocupa la mitad del ancho */}
+      <Col xs={12} md={6} className="d-flex flex-column justify-content-between">
+        <Row className="flex-grow-1">
+          {/* Primer fila que ocupa la mitad de la altura */}
+          <Col xs={12} className="product-item">
+            <div className={`product-card ${products[1].hoverColorClass} flex-fill ${products[1].sizeClass}`}>
+              <img
+                src={products[1].image}
+                alt={products[1].name}
+                className="product-image"
+              />
+              <div className="product-info">
+                <h5>{products[1].name}</h5>
+                <p>{products[1].count}</p>
               </div>
-            </Col>
-          ))}
+            </div>
+          </Col>
         </Row>
-      </Container>
+        <Row className="flex-grow-1">
+          {/* Segunda fila con dos productos que ocupan la mitad del ancho */}
+          <Col xs={6} className="product-item">
+            <div className={`product-card ${products[2].hoverColorClass} flex-fill ${products[2].sizeClass}`}>
+              <img
+                src={products[2].image}
+                alt={products[2].name}
+                className="product-image"
+              />
+              <div className="product-info">
+                <h5>{products[2].name}</h5>
+                <p>{products[2].count}</p>
+              </div>
+            </div>
+          </Col>
+          <Col xs={6} className="product-item">
+            <div className={`product-card ${products[3].hoverColorClass} flex-fill ${products[3].sizeClass}`}>
+              <img
+                src={products[3].image}
+                alt={products[3].name}
+                className="product-image"
+              />
+              <div className="product-info">
+                <h5>{products[3].name}</h5>
+                <p>{products[3].count}</p>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
+  </Container>
 
       <Container className="items-section">
         <Row>
