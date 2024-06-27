@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTruck,
@@ -59,6 +59,79 @@ const items = [
   },
 ];
 
+const productos = [
+  {
+    id: 1,
+    nombre: "Termo Cebala 1lt [min. 10 unidades]",
+    precio: 1889,
+    imagen: "/path/to/image1.jpg",
+    categoria: "Regalos Empresariales",
+  },
+  {
+    id: 2,
+    nombre: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
+    precio: 990,
+    imagen: "/path/to/image2.jpg",
+    categoria: "Regalos Empresariales",
+  },
+  {
+    id: 3,
+    nombre: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
+    precio: 990,
+    imagen: "/path/to/image3.jpg",
+    categoria: "Regalos Empresariales",
+  },
+  {
+    id: 4,
+    nombre: "Bombilla Acero Inoxidable Premium [Negro]",
+    precio: 790,
+    imagen: "/path/to/image4.jpg",
+    categoria: "Bombillas",
+  },
+  {
+    id: 5,
+    nombre: "Mate Acero Inoxidable Premium [Blanco]",
+    precio: 990,
+    imagen: "/path/to/image5.jpg",
+    categoria: "Mates",
+  },
+  {
+    id: 6,
+    nombre: "Mate Acero Inoxidable Premium [Negro]",
+    precio: 990,
+    imagen: "/path/to/image6.jpg",
+    categoria: "Mates",
+  },
+  {
+    id: 7,
+    nombre: "Termo Cebala 1lt",
+    precio: 1750,
+    imagen: "/path/to/image7.jpg",
+    categoria: "Termos",
+  },
+  {
+    id: 8,
+    nombre: "Matera Bamboo",
+    precio: 1700,
+    imagen: "/path/to/image8.jpg",
+    categoria: "Materas",
+  },
+  {
+    id: 9,
+    nombre: "Matera Cartera Zaira",
+    precio: 2960,
+    imagen: "/path/to/image9.jpg",
+    categoria: "Carteras",
+  },
+  {
+    id: 10,
+    nombre: "Mate De Cerámica Forrado",
+    precio: 4900,
+    imagen: "/path/to/image10.jpg",
+    categoria: "Mates",
+  },
+];
+
 function Home() {
   return (
     <>
@@ -102,22 +175,68 @@ function Home() {
         </div>
       </div>
       <Container className="products-section">
+        |
         <Row>
-          {products.map((product, index) => (
-            <Col xs={12} md={6} lg={3} key={index} className="product-item">
-              <div className={`product-card ${product.hoverColorClass}`}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
-                <div className="product-info">
-                  <h5>{product.name}</h5>
-                  <p>{product.count}</p>
-                </div>
+          {/* Primer columna de tamaño completo para el primer producto */}
+          <Col xs={12} md={6}>
+            <div className={`product-card ${products[0].hoverColorClass}`}>
+              <img
+                src={products[0].image}
+                alt={products[0].name}
+                className="product-image"
+              />
+              <div className="product-info">
+                <h5>{products[0].name}</h5>
+                <p>{products[0].count}</p>
               </div>
-            </Col>
-          ))}
+            </div>
+          </Col>
+          {/* Segunda columna con dos filas */}
+          <Col xs={6}>
+            {/* Primer fila con un producto */}
+
+            <div className={`product-card ${products[1].hoverColorClass}`}>
+              <img
+                src={products[1].image}
+                alt={products[1].name}
+                className="product-image"
+              />
+              <div className="product-info">
+                <h5>{products[1].name}</h5>
+                <p>{products[1].count}</p>
+              </div>
+            </div>
+
+            <Row>
+              {/* Segunda fila con dos productos */}
+              <Col xs={6} className="product-item">
+                <div className={`product-card ${products[2].hoverColorClass}`}>
+                  <img
+                    src={products[2].image}
+                    alt={products[2].name}
+                    className="product-image"
+                  />
+                  <div className="product-info">
+                    <h5>{products[2].name}</h5>
+                    <p>{products[2].count}</p>
+                  </div>
+                </div>
+              </Col>
+              <Col xs={6} className="product-item">
+                <div className={`product-card ${products[3].hoverColorClass}`}>
+                  <img
+                    src={products[3].image}
+                    alt={products[3].name}
+                    className="product-image"
+                  />
+                  <div className="product-info">
+                    <h5>{products[3].name}</h5>
+                    <p>{products[3].count}</p>
+                  </div>
+                </div>
+              </Col>
+            </Row>
+          </Col>
         </Row>
       </Container>
 
@@ -131,6 +250,56 @@ function Home() {
                   <p>{item.text}</p>
                 </div>
               </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+
+      <div className="padding">
+        <Container fluid className="amazon-finds-section">
+          <Row className="justify-content-center">
+            <Col md={10} lg={8} className="content-box">
+              <Row className="align-items-center">
+                <Col md={6} className="text-container">
+                  <h1>Amazon finds</h1>
+                  <p>
+                    Ahora también podés encontrar nuestros más vendidos en
+                    Amazon!
+                  </p>
+                  <Button
+                    variant="light"
+                    href="https://www.amazon.com"
+                    target="_blank"
+                  >
+                    Ver Tienda
+                  </Button>
+                </Col>
+                <Col md={6} className="image-container">
+                  <img
+                    src="/public/images/AmazonFinds.png"
+                    alt="Cebala Product"
+                    className="product-image"
+                  />
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </div>
+
+      <Container>
+        <h1 className="my-4">Productos destacados</h1>
+        <Row>
+          {productos.map((producto) => (
+            <Col key={producto.id} md={4} className="mb-4">
+              <Card>
+                <Card.Img variant="top" src={producto.imagen} />
+                <Card.Body>
+                  <Card.Title>{producto.nombre}</Card.Title>
+                  <Card.Text>${producto.precio}</Card.Text>
+                  <Button variant="primary">Añadir al carrito</Button>
+                </Card.Body>
+              </Card>
             </Col>
           ))}
         </Row>

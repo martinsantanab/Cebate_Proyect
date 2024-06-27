@@ -183,6 +183,44 @@
   }
 }
 
+/* AMAZON FINDS SECTION */
+
+.amazon-finds-section {
+  background: linear-gradient(135deg, #f56b1f, #131316);
+  color: white;
+  border: none;
+  padding: 100px 20px;
+  border-radius: 20px; /* Añade un borde redondeado al botón */
+}
+
+.padding {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.text-container h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.text-container p {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+}
+
 /* CSS DE LOS PRODUCTOS MOSTRADOS */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
 
 /* FOOTER CSS: */
