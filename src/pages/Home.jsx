@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import NavbarComponent from "../components/Navbar";
 
-const products = [
+const categories = [
   {
     name: "Mates",
     count: 45,
@@ -174,69 +174,18 @@ function Home() {
           </Container>
         </div>
       </div>
-      <Container className="products-section">
-        |
+
+      <Container className="categories-section">
         <Row>
-          {/* Primer columna de tamaño completo para el primer producto */}
-          <Col xs={12} md={6}>
-            <div className={`product-card ${products[0].hoverColorClass}`}>
-              <img
-                src={products[0].image}
-                alt={products[0].name}
-                className="product-image"
-              />
-              <div className="product-info">
-                <h5>{products[0].name}</h5>
-                <p>{products[0].count}</p>
-              </div>
-            </div>
-          </Col>
-          {/* Segunda columna con dos filas */}
-          <Col xs={6}>
-            {/* Primer fila con un producto */}
-
-            <div className={`product-card ${products[1].hoverColorClass}`}>
-              <img
-                src={products[1].image}
-                alt={products[1].name}
-                className="product-image"
-              />
-              <div className="product-info">
-                <h5>{products[1].name}</h5>
-                <p>{products[1].count}</p>
-              </div>
-            </div>
-
-            <Row>
-              {/* Segunda fila con dos productos */}
-              <Col xs={6} className="product-item">
-                <div className={`product-card ${products[2].hoverColorClass}`}>
-                  <img
-                    src={products[2].image}
-                    alt={products[2].name}
-                    className="product-image"
-                  />
-                  <div className="product-info">
-                    <h5>{products[2].name}</h5>
-                    <p>{products[2].count}</p>
-                  </div>
+          {categories.map((category, index) => (
+            <Col xs={12} md={6} lg={3} key={index} className="category">
+              <div className={`category-card ${category.hoverColorClass}`}>
+                <div className="category-info">
+                  <img src={category.image} alt={category.name} />
                 </div>
-              </Col>
-              <Col xs={6} className="product-item">
-                <div className={`product-card ${products[3].hoverColorClass}`}>
-                  <img
-                    src={products[3].image}
-                    alt={products[3].name}
-                    className="product-image"
-                  />
-                  <div className="product-info">
-                    <h5>{products[3].name}</h5>
-                    <p>{products[3].count}</p>
-                  </div>
-                </div>
-              </Col>
-            </Row>
-          </Col>
+              </div>
+            </Col>
+          ))}
         </Row>
       </Container>
 
