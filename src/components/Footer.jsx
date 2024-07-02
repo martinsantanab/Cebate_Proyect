@@ -20,7 +20,7 @@ export default function FooterComponent () {
         <Row>
           <Col lg={3} className="text-center text-lg-left mb-4 mb-lg-0">
           <div className="footer-logo">
-              <img src="public/images/cebateLogopngBlanco.png" className="ms-3 d-inline-block align-top" alt="CEBATE" />
+              <img src="public/images/cebateLogopngBlanco.png" className="d-inline-block align-top" alt="CEBATE" />
               <p className="slogan">Más que una marca, una cultura.</p>
             </div>
             <div className="social-icons">
@@ -36,7 +36,7 @@ export default function FooterComponent () {
             </div>
 
           </Col>
-          <Col lg={3} className="mb-4 mb-lg-0">
+          <Col lg={3} className="my-4 mb-lg-0">
             <h5 className="text-uppercase text-white fw-bold">Links Útiles</h5>
             <ul className="list-unstyled">
               <li className="text-white"><a href="#" className="text-reset">Sobre nosotros</a></li>
@@ -45,7 +45,7 @@ export default function FooterComponent () {
               <li className="text-white"><a href="#" className="text-reset">Blog</a></li>
             </ul>
           </Col>
-          <Col lg={3} className="mb-4 mb-lg-0">
+          <Col lg={3} className="my-4 mb-lg-0">
             <h5 className="text-uppercase text-white fw-bold">Área del Cliente</h5>
             <ul className="list-unstyled">
               <li className="text-white"><a href="#" className="text-reset">My Account</a></li>
@@ -54,7 +54,7 @@ export default function FooterComponent () {
               <li className="text-white"><a href="#" className="text-reset">My Cart</a></li>
             </ul>
           </Col>
-          <Col lg={3}>
+          <Col lg={3} className='mt-4'>
             <h5 className="text-uppercase text-white fw-bold">Más Información</h5>
             <ul className="list-unstyled">
               <li className="text-white">Contactanos por cualquier consulta</li>
