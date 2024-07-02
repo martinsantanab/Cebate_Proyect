@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle, faSearch } from '@fortawesome/free-solid-svg-icons';
-import '../App.css'; // Asegúrate de que esta ruta sea correcta según la estructura de tu proyecto
+import '../App.css';
 
 export default function NavbarComponent() {
   const location = useLocation();
@@ -14,10 +14,6 @@ export default function NavbarComponent() {
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
-
-  const handleSelect = (eventKey) => {
-    setActiveLink(eventKey);
-  };
 
   const handleLoginClick = () => {
     alert('Aún no es posible iniciar sesión, gracias por su paciencia');
@@ -31,59 +27,66 @@ export default function NavbarComponent() {
     setSearchVisible(!searchVisible);
   };
 
+  const changeLanguage = (lang) => {
+    // Aquí puedes manejar el cambio de idioma según el valor de lang
+    alert(`Idioma cambiado a: ${lang}`);
+  };
+
   return (
     <div className="custom-navbar">
-      <Navbar expand="lg" fixed="top" className="bg-dark bg-opacity-75">
+      <Navbar expand="lg" fixed="top" className="navbar-custom">
         <Container fluid>
           <Navbar.Brand href="/">
             <img
-              src="public\images\cebateLogopngBlanco.png"
+              src="public/images/cebateLogopngBlanco.png"
               height="70"
-              className="ms-3 d-inline-block align-top"
+              className="navbar-logo"
               alt="CEBATE"
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              className="mx-auto my-2 my-lg-0 navbar-nav-scroll"
-              activeKey={activeLink}
-              onSelect={handleSelect}
-            >
+            <Nav className="w-100 justify-content-around">
               <LinkContainer to="/" onClick={() => setActiveLink('/')}>
                 <Nav.Link eventKey="/" className={`nav-link ${activeLink === '/' ? 'active' : ''}`}>Inicio</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/Products" onClick={() => setActiveLink('/Products')}>
-                <Nav.Link eventKey="/Products" className={`nav-link ${activeLink === '/Products' ? 'active' : ''}`}>Productos</Nav.Link>
+              <LinkContainer to="/products" onClick={() => setActiveLink('/products')}>
+                <Nav.Link eventKey="/products" className={`nav-link ${activeLink === '/products' ? 'active' : ''}`}>Productos</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/nosotros" onClick={() => setActiveLink('/nosotros')}>
-                <Nav.Link eventKey="/nosotros" className={`nav-link ${activeLink === '/nosotros' ? 'active' : ''}`}>Nosotros</Nav.Link>
+              <LinkContainer to="/aboutus" onClick={() => setActiveLink('/aboutus')}>
+                <Nav.Link eventKey="/aboutus" className={`nav-link ${activeLink === '/aboutus' ? 'active' : ''}`}>Sobre Nosotros</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/contacto" onClick={() => setActiveLink('/contacto')}>
-                <Nav.Link eventKey="/contacto" className={`nav-link ${activeLink === '/contacto' ? 'active' : ''}`}>Contacto</Nav.Link>
+              <LinkContainer to="/contact" onClick={() => setActiveLink('/contact')}>
+                <Nav.Link eventKey="/contact" className={`nav-link ${activeLink === '/contact' ? 'active' : ''}`}>Contacto</Nav.Link>
               </LinkContainer>
+              <div className="navbar-icons d-flex align-items-center">
+                {searchVisible && (
+                  <Form className="d-flex">
+                    <FormControl
+                      type="search"
+                      placeholder="Buscar"
+                      className="me-2"
+                      aria-label="Buscar"
+                    />
+                  </Form>
+                )}
+                <Button variant="outline-light" className="border-0" onClick={toggleSearch}>
+                  <FontAwesomeIcon icon={faSearch} />
+                </Button>
+                <Button variant="outline-light" className="border-0 ms-3" onClick={handleLoginClick}>
+                  <FontAwesomeIcon icon={faUserCircle} />
+                </Button>
+                <Button variant="outline-light" className="border-0 ms-3" onClick={handleCartClick}>
+                  <FontAwesomeIcon icon={faShoppingCart} />
+                </Button>
+                <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('es')}>
+                  <img src="public/images/españa.png" alt="Spanish" width="24" height="24" />
+                </Button>
+                <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('en')}>
+                  <img src="public/images/estadosunidos.png" alt="English" width="24" height="24" />
+                </Button>
+              </div>
             </Nav>
-            <div className="navbar-icons d-flex align-items-center">
-              {searchVisible && (
-                <Form className="d-flex">
-                  <FormControl
-                    type="search"
-                    placeholder="Buscar"
-                    className="me-2"
-                    aria-label="Buscar"
-                  />
-                </Form>
-              )}
-              <Button variant="outline-light" className="border-0" onClick={toggleSearch}>
-                <FontAwesomeIcon icon={faSearch} />
-              </Button>
-              <Button variant="outline-light" className="border-0 ms-3" onClick={handleLoginClick}>
-                <FontAwesomeIcon icon={faUserCircle} />
-              </Button>
-              <Button variant="outline-light" className="border-0 ms-3" onClick={handleCartClick}>
-                <FontAwesomeIcon icon={faShoppingCart} />
-              </Button>
-            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>

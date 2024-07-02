@@ -1,10 +1,9 @@
-import { useState } from "react";
-import "./App.css";
-import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Contact from "./pages/Contact";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import Contact from './pages/Contact';
+import NavbarComponent from './components/Navbar';
+import FooterComponent from './components/Footer';
 
 function App() {
   const router = createBrowserRouter([
@@ -13,15 +12,21 @@ function App() {
       element: <Home />,
     },
     {
-      path: "/AboutUs",
+      path: "/aboutus",
       element: <AboutUs />,
     },
     {
-      path: "/Contact",
+      path: "/contact",
       element: <Contact />,
     },
   ]);
-  return <RouterProvider router={router} />;
+
+  return (
+    <>
+      <NavbarComponent />
+      <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;
