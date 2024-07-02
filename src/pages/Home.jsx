@@ -8,6 +8,7 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import NavbarComponent from "../components/Navbar";
+import FooterComponent from "../components/Footer";
 
 const categories = [
   {
@@ -281,6 +282,7 @@ function Home() {
           <button className="principalProduct-buyButton">Comprar</button>
         </div>
       </div>
+      <FooterComponent />
     </>
   );
 }

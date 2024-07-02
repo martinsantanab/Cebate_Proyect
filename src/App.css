@@ -1,5 +1,44 @@
 /* NAVBAR CSS: */
+.custom-navbar {
+  margin: 0 15px;
+}
 
+.navbar-custom {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+  height: 120px;
+}
+
+.navbar-logo {
+  margin-left: 50px;
+}
+
+.nav-link {
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.nav-link.active {
+  color: white !important;
+}
+
+.navbar-icons .btn {
+  color: white !important;
+}
+
+.navbar-icons .btn:hover {
+  background-color: black;
+  }
+
+
+.navbar-divider {
+  height: 1px;
+  background-color: #ddd;
+}
+
+.navbar-icons .btn img {
+  width: 24px;
+  height: 24px;
+}
 /* ABOUT US CSS: */
 .about-us {
   padding: 20px;
