@@ -37,8 +37,8 @@ export default function NavbarComponent() {
         <Container fluid>
           <Navbar.Brand href="/">
             <img
-              src="/images/webSite_Clicka/logoclicka.png"
-              height="35"
+              src="public\images\cebateLogopngBlanco.png"
+              height="70"
               className="ms-3 d-inline-block align-top"
               alt="CEBATE"
             />

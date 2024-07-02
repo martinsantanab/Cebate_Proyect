@@ -5,7 +5,9 @@
   padding: 20px;
   max-width: 800px;
   margin: 0 auto;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system,system-ui, Arial, Helvetica, sans-serif, 
+
+  ;
 }
 
 .about-us-header {
@@ -302,3 +304,79 @@
 }
 
 /* FOOTER CSS: */
+
+.newsletter-section {
+  background-color: #181c1f !important;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 290px;
+  padding-top: 120px !important;
+  padding-bottom: 120px !important;
+  margin-bottom: 0px !important;
+}  
+
+.div-subscribe {
+  max-width: 600px; 
+  margin:  auto; 
+}
+.newsletter-section h2 {
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.newsletter-section .btn-subscribe {
+  background-color: #40e0d0;
+  border: none;
+  color: white;
+  margin-left: 20px;
+}
+
+.newsletter-section .btn-subscribe:hover {
+  background-color: #ff7f50;
+}
+
+.footer-main {
+  background-color: #000;
+   
+}
+
+.footer-logo img {
+  width: 200px;
+  
+}
+
+.footer-logo .slogan {
+  font-size: 0.9rem;
+  color: #a8a7a7;
+  margin-top: 0px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.social-icons a {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #000; 
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s, color 0.3s; 
+  width: 40px; 
+  height: 40px; 
+  margin-inline: 15px;
+  margin-top: 15px;
+  }
+
+
+.social-icons a:hover {
+  background-color: #ff7f50; 
+  color: #fff; 
+}
+
+.payment-icons img {
+  width: 250px;
+  margin-top: 15px;
+
+}
+
