@@ -1,11 +1,9 @@
-import React, { useRef } from "react";
 import "./AboutUs";
-import NavbarComponent from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+
 function AboutUs() {
   return (
     <div className="about-us">
-      <NavbarComponent/>
+     
       <header className="about-us-header">
         <h1>About Us</h1>
       </header>

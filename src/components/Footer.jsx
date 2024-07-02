@@ -4,7 +4,7 @@ import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
-export default function Footer () {
+export default function FooterComponent () {
   return (
     <footer>
       <div className="newsletter-section  text-white text-center py-3">

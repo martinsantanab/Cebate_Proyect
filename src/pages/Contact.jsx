@@ -1,6 +1,3 @@
-import NavbarComponent from "../components/Navbar";
-import FooterComponent from "../components/Footer";
-
 export default function Contact() {
     return (
         <div className="contariner">

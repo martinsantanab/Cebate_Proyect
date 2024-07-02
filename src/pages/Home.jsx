@@ -1,4 +1,3 @@
-import React from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,8 +6,7 @@ import {
   faHeadset,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
-import NavbarComponent from "../components/Navbar";
-import FooterComponent from "../components/Footer";
+
 
 const categories = [
   {
