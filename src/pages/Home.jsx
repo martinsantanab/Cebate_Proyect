@@ -132,6 +132,13 @@ const productos = [
   },
 ];
 
+const principalProduct = {
+  price: 2151,
+  name: 'Matera Pampita',
+  description: 'La matera que se adapta a cualquier espacio.',
+  image: "/public/images/principalProduct.png" 
+};
+
 function Home() {
   return (
     <>
@@ -255,6 +262,19 @@ function Home() {
           ))}
         </Row>
       </Container>
+
+{/* PRIMCIPAL PRODUCT */}
+
+<div className="principalProduct-container" style={{ backgroundImage: `url(${principalProduct.image})` }}>
+      <div className="principalProduct-overlay"></div>
+      <div className="principalProduct-info">
+        <p className="principalProduct-price">Desde ${principalProduct.price}</p>
+        <h1 className="principalProduct-name">{principalProduct.name}</h1>
+        <p className="principalProduct-description">{principalProduct.description}</p>
+        <button className="principalProduct-buyButton">Comprar</button>
+      </div>
+    </div>
+
     </>
   );
 }
