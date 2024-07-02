@@ -178,9 +178,11 @@ function Home() {
       <Container className="categories-section">
         <Row>
           {categories.map((category, index) => (
-            <Col xs={12} md={6} lg={3} key={index} className="category">
+            <Col xs={12} md={6} key={index} className="category">
               <div className={`category-card ${category.hoverColorClass}`}>
                 <div className="category-info">
+                  <p className="fonts text-align">{category.name}</p>
+
                   <img src={category.image} alt={category.name} />
                 </div>
               </div>
