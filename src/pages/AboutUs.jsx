@@ -75,7 +75,7 @@ function AboutUs() {
           </p>
         </div>
       </section>
-      <FooterComponent/>
+      
     </div>
   );
 }

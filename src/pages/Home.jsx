@@ -143,7 +143,7 @@ const principalProduct = {
 function Home() {
   return (
     <>
-      <NavbarComponent />
+     
       <div className="home-container">
         <video autoPlay loop muted className="video-background">
           <source src="/public/video/CebalaHomeVideo.mp4" type="video/mp4" />
@@ -282,7 +282,7 @@ function Home() {
           <button className="principalProduct-buyButton">Comprar</button>
         </div>
       </div>
-      <FooterComponent />
+      
     </>
   );
 }

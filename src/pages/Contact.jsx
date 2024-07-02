@@ -4,11 +4,13 @@ import FooterComponent from "../components/Footer";
 export default function Contact() {
     return (
         <div className="contariner">
-    <NavbarComponent />
-    <div>
-        <h1> Conctacto</h1>
+    
+    <div className="m-5">
+        <h1>CONTACTO</h1>
+        <h2>formulario</h2>
+        <h5>Preguntas</h5>
     </div>
-    <FooterComponent/>
+    
     </div>
     )
 }
