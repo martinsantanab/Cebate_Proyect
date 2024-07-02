@@ -152,11 +152,13 @@
 }
 
 .item-card {
+  width: 100%; /* Tamaño fijo de las tarjetas */
+  height: 100%; /* Altura fija, ajusta según necesidad */
   position: relative;
   overflow: hidden;
   border: 1px solid #ddd;
   border-radius: 10px;
-  text-align: center;
+  text-align: left; /* Justificación a la izquierda */
   transition: all 0.3s ease-in-out;
   background-color: white;
 }
@@ -179,6 +181,15 @@
 
 .item-info {
   padding: 15px;
+}
+
+.item-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item-description {
+  color: #666;
 }
 
 @media (max-width: 768px) {
@@ -227,7 +238,6 @@
   object-fit: cover;
 }
 
-
 /* PRINCIPAL PRODUCT CONTAINER */
 .principalProduct-container {
   display: flex;
@@ -247,7 +257,12 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3); /* Añade un overlay oscuro para mejorar la legibilidad del texto */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.3
+  ); /* Añade un overlay oscuro para mejorar la legibilidad del texto */
 }
 
 .principalProduct-info {
@@ -256,6 +271,7 @@
   padding: 20px;
   max-width: 500px;
   text-align: right; /* Alinea el texto a la derecha */
+  padding-right: 100px;
 }
 
 .principalProduct-price {
@@ -282,9 +298,7 @@
   color: #fff;
   background-color: #333;
   border: none;
-  border-radius: 
+  border-radius: 10px;
 }
-
-
 
 /* FOOTER CSS: */

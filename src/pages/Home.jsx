@@ -38,23 +38,23 @@ const categories = [
 ];
 const items = [
   {
-    title: "Title1",
-    text: "This is some text for item 1.",
+    title: "¿Cómo curar mi mate?",
+    text: "Todos los TIPS para curar tu mate de calabaza o madera.",
     hoverColorClass: "hover-celeste",
   },
   {
-    title: "Title2",
-    text: "This is some text for item 2.",
+    title: "¿Manchas verdes en el mate?",
+    text: "Es MUY normal que aparezcan estas manchas, no te asustes! Solo seguí nuestros TIPS.",
     hoverColorClass: "hover-amarillo",
   },
   {
-    title: "Title3",
-    text: "This is some text for item 3.",
+    title: "Beneficios del mate",
+    text: "Aparte de ser el mejor compañero, tiene muchos beneficios.",
     hoverColorClass: "hover-gris",
   },
   {
-    title: "Title4",
-    text: "This is some text for item 4.",
+    title: "¿Cómo limpiar la bombilla?",
+    text: "La higiene en la bombilla es fundamental. Recomendamos hacerla una vez por mes.",
     hoverColorClass: "hover-celeste",
   },
 ];
@@ -134,9 +134,9 @@ const productos = [
 
 const principalProduct = {
   price: 2151,
-  name: 'Matera Pampita',
-  description: 'La matera que se adapta a cualquier espacio.',
-  image: "/public/images/principalProduct.png" 
+  name: "Matera Pampita",
+  description: "La matera que se adapta a cualquier espacio.",
+  image: "/public/images/principalProduct.png",
 };
 
 function Home() {
@@ -204,8 +204,8 @@ function Home() {
             <Col xs={12} md={6} lg={3} key={index} className="item">
               <div className={`item-card ${item.hoverColorClass}`}>
                 <div className="item-info">
-                  <h5>{item.title}</h5>
-                  <p>{item.text}</p>
+                  <h5 className="item-title">{item.title}</h5>
+                  <p className="item-description">{item.text}</p>
                 </div>
               </div>
             </Col>
@@ -263,18 +263,24 @@ function Home() {
         </Row>
       </Container>
 
-{/* PRIMCIPAL PRODUCT */}
+      {/* PRIMCIPAL PRODUCT */}
 
-<div className="principalProduct-container" style={{ backgroundImage: `url(${principalProduct.image})` }}>
-      <div className="principalProduct-overlay"></div>
-      <div className="principalProduct-info">
-        <p className="principalProduct-price">Desde ${principalProduct.price}</p>
-        <h1 className="principalProduct-name">{principalProduct.name}</h1>
-        <p className="principalProduct-description">{principalProduct.description}</p>
-        <button className="principalProduct-buyButton">Comprar</button>
+      <div
+        className="principalProduct-container"
+        style={{ backgroundImage: `url(${principalProduct.image})` }}
+      >
+        <div className="principalProduct-overlay"></div>
+        <div className="principalProduct-info">
+          <p className="principalProduct-price">
+            Desde ${principalProduct.price}
+          </p>
+          <h1 className="principalProduct-name">{principalProduct.name}</h1>
+          <p className="principalProduct-description">
+            {principalProduct.description}
+          </p>
+          <button className="principalProduct-buyButton">Comprar</button>
+        </div>
       </div>
-    </div>
-
     </>
   );
 }
