@@ -1,3 +1,8 @@
+<<<<<<< Updated upstream
+=======
+import React from "react";
+import { useEffect, useState } from "react";
+>>>>>>> Stashed changes
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,35 +11,40 @@ import {
   faHeadset,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
+<<<<<<< Updated upstream
 
+=======
+import NavbarComponent from "../components/Navbar";
+import axios from "axios";
+>>>>>>> Stashed changes
 
-const categories = [
-  {
-    name: "Mates",
-    count: 45,
-    image: "/public/images/mate.1.png",
-    hoverColorClass: "hover-celeste",
-  },
-  {
-    name: "Bombillas",
-    count: 28,
-    image: "/public/images/bombilla.1.png",
-    hoverColorClass: "hover-amarillo",
-  },
-  {
-    name: "Termos",
-    count: 23,
-    image: "/public/images/termo.1.png",
-    hoverColorClass: "hover-gris",
-    sizeClass: "product-normal",
-  },
-  {
-    name: "Materas",
-    count: 5,
-    image: "/public/images/matera.1.png",
-    hoverColorClass: "hover-celeste",
-  },
-];
+// const categories = [
+//   {
+//     name: "Mates",
+//     count: 45,
+//     image: "/public/images/mate.1.png",
+//     hoverColorClass: "hover-celeste",
+//   },
+//   {
+//     name: "Bombillas",
+//     count: 28,
+//     image: "/public/images/bombilla.1.png",
+//     hoverColorClass: "hover-amarillo",
+//   },
+//   {
+//     name: "Termos",
+//     count: 23,
+//     image: "/public/images/termo.1.png",
+//     hoverColorClass: "hover-gris",
+//     sizeClass: "product-normal",
+//   },
+//   {
+//     name: "Materas",
+//     count: 5,
+//     image: "/public/images/matera.1.png",
+//     hoverColorClass: "hover-celeste",
+//   },
+// ];
 const items = [
   {
     title: "¿Cómo curar mi mate?",
@@ -139,6 +149,32 @@ const principalProduct = {
 };
 
 function Home() {
+  const [categories, setCategories] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/categories");
+        setCategories(response.data);
+      } catch (error) {
+        console.error("Error obteniendo las categorias:", error);
+      }
+    };
+
+    const getProducts = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/products");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error obteniendo los productos:", error);
+      }
+    };
+
+    getProducts();
+    getCategories();
+  }, []);
+
   return (
     <>
      
@@ -180,23 +216,21 @@ function Home() {
           </Container>
         </div>
       </div>
-
       <Container className="categories-section">
         <Row>
           {categories.map((category, index) => (
             <Col xs={12} md={6} key={index} className="category">
-              <div className={`category-card ${category.hoverColorClass}`}>
+              <div className={`category-card hover-celeste`}>
                 <div className="category-info">
                   <p className="fonts text-align">{category.name}</p>
 
-                  <img src={category.image} alt={category.name} />
+                  <img src={category.img} alt={category.name} />
                 </div>
               </div>
             </Col>
           ))}
         </Row>
       </Container>
-
       <Container className="items-section">
         <Row>
           {items.map((item, index) => (
@@ -211,7 +245,6 @@ function Home() {
           ))}
         </Row>
       </Container>
-
       <div className="padding">
         <Container fluid className="amazon-finds-section">
           <Row className="justify-content-center">
@@ -243,17 +276,16 @@ function Home() {
           </Row>
         </Container>
       </div>
-
       <Container>
         <h1 className="my-4">Productos destacados</h1>
         <Row>
-          {productos.map((producto) => (
-            <Col key={producto.id} md={4} className="mb-4">
+          {products.map((product) => (
+            <Col key={product.id} md={4} className="mb-4">
               <Card>
-                <Card.Img variant="top" src={producto.imagen} />
+                <Card.Img variant="top" src={product.picture} />
                 <Card.Body>
-                  <Card.Title>{producto.nombre}</Card.Title>
-                  <Card.Text>${producto.precio}</Card.Text>
+                  <Card.Title>{product.name}</Card.Title>
+                  <Card.Text>${product.price}</Card.Text>
                   <Button variant="primary">Añadir al carrito</Button>
                 </Card.Body>
               </Card>
@@ -261,9 +293,7 @@ function Home() {
           ))}
         </Row>
       </Container>
-
       {/* PRIMCIPAL PRODUCT */}
-
       <div
         className="principalProduct-container"
         style={{ backgroundImage: `url(${principalProduct.image})` }}
