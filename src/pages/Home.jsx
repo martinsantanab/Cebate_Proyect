@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
-=======
 import React from "react";
 import { useEffect, useState } from "react";
->>>>>>> Stashed changes
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,12 +8,9 @@ import {
   faHeadset,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
-<<<<<<< Updated upstream
 
-=======
 import NavbarComponent from "../components/Navbar";
 import axios from "axios";
->>>>>>> Stashed changes
 
 // const categories = [
 //   {
@@ -177,7 +171,6 @@ function Home() {
 
   return (
     <>
-     
       <div className="home-container">
         <video autoPlay loop muted className="video-background">
           <source src="/public/video/CebalaHomeVideo.mp4" type="video/mp4" />
@@ -310,7 +303,6 @@ function Home() {
           <button className="principalProduct-buyButton">Comprar</button>
         </div>
       </div>
-      
     </>
   );
 }
