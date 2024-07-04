@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,8 +7,6 @@ import {
   faHeadset,
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
-
-import NavbarComponent from "../components/Navbar";
 import axios from "axios";
 
 // const categories = [
@@ -275,7 +272,9 @@ function Home() {
           {products.map((product) => (
             <Col key={product.id} md={4} className="mb-4">
               <Card>
-                <Card.Img variant="top" src={product.picture} />
+                <Card.Img variant="top" src={product.picture.url[0
+                  
+                ]} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>${product.price}</Card.Text>
