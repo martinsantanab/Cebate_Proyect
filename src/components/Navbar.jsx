@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Navbar, Nav, Container, Button, Form, FormControl } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faUserCircle, faSearch } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
 export default function NavbarComponent() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [activeLink, setActiveLink] = useState(location.pathname);
   const [searchVisible, setSearchVisible] = useState(false);
 
@@ -27,8 +27,12 @@ export default function NavbarComponent() {
     setSearchVisible(!searchVisible);
   };
 
+  const scrollToTopAndNavigate = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   const changeLanguage = (lang) => {
-    // Aquí puedes manejar el cambio de idioma según el valor de lang
     alert(`Idioma cambiado a: ${lang}`);
   };
 
@@ -47,18 +51,30 @@ export default function NavbarComponent() {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="w-100 justify-content-around">
-              <LinkContainer to="/" onClick={() => setActiveLink('/')}>
-                <Nav.Link eventKey="/" className={`nav-link ${activeLink === '/' ? 'active' : ''}`}>Inicio</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/products" onClick={() => setActiveLink('/products')}>
-                <Nav.Link eventKey="/products" className={`nav-link ${activeLink === '/products' ? 'active' : ''}`}>Productos</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/aboutus" onClick={() => setActiveLink('/aboutus')}>
-                <Nav.Link eventKey="/aboutus" className={`nav-link ${activeLink === '/aboutus' ? 'active' : ''}`}>Sobre Nosotros</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/contact" onClick={() => setActiveLink('/contact')}>
-                <Nav.Link eventKey="/contact" className={`nav-link ${activeLink === '/contact' ? 'active' : ''}`}>Contacto</Nav.Link>
-              </LinkContainer>
+              <Nav.Link
+                className={`nav-link ${activeLink === '/' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/')}
+              >
+                Inicio
+              </Nav.Link>
+              <Nav.Link
+                className={`nav-link ${activeLink === '/products' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/products')}
+              >
+                Productos
+              </Nav.Link>
+              <Nav.Link
+                className={`nav-link ${activeLink === '/aboutus' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/aboutus')}
+              >
+                Sobre Nosotros
+              </Nav.Link>
+              <Nav.Link
+                className={`nav-link ${activeLink === '/contact' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/contact')}
+              >
+                Contacto
+              </Nav.Link>
               <div className="navbar-icons d-flex align-items-center">
                 {searchVisible && (
                   <Form className="d-flex">
@@ -80,10 +96,10 @@ export default function NavbarComponent() {
                   <FontAwesomeIcon icon={faShoppingCart} />
                 </Button>
                 <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('es')}>
-                  <img src="public\images\spanishFlag.png" alt="Spanish" width="24" height="24" />
+                  <img src="public/images/spanishFlag.png" alt="Spanish" width="24" height="24" />
                 </Button>
                 <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('en')}>
-                  <img src="public\images\usaFlag.png" alt="English" width="24" height="24" />
+                  <img src="public/images/usaFlag.png" alt="English" width="24" height="24" />
                 </Button>
               </div>
             </Nav>

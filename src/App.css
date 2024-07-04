@@ -343,22 +343,19 @@
 }
 
 /* FOOTER CSS: */
-
 .newsletter-section {
   background-color: #181c1f !important;
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  height: 290px;
-  padding-top: 120px !important;
-  padding-bottom: 120px !important;
-  margin-bottom: 0px !important;
-}  
+  height: 290px; /* Altura ajustada según tus necesidades */
+}
 
 .div-subscribe {
   max-width: 600px; 
-  margin:  auto; 
+  margin: auto; 
 }
+
 .newsletter-section h2 {
   font-weight: bold;
   margin-bottom: 30px;
@@ -377,21 +374,22 @@
 
 .footer-main {
   background-color: #000;
-   
+}
+
+.footer-main h5 {
+  margin-bottom: 1.5rem;
 }
 
 .footer-logo img {
   width: 200px;
-  
-  
 }
 
 .footer-logo .slogan {
   font-size: 0.9rem;
-  color: #a8a7a7;
+  color: #9e9e9e;
   margin-top: 0px;
   text-align: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 .social-icons a {
@@ -406,18 +404,22 @@
   height: 40px; 
   margin-inline: 15px;
   margin-top: 30px;
-  }
-
+}
 
 .social-icons a:hover {
   background-color: #ff7f50; 
   color: #fff;
-  
 }
 
 .payment-icons img {
   width: 250px;
-  margin: auto;
-
+  margin-top: -0.7rem;
 }
 
+.custom-margin { /* margen entre los textos del footer */
+  margin-bottom: 0.5rem; 
+  color: #9e9e9e !important;
+}
+.link {
+  cursor: pointer; /* Cambia el cursor a una mano */
+}

@@ -2,15 +2,28 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom'; // Importa useNavigate de react-router-dom
 import '../App.css';
 
-export default function FooterComponent () {
+export default function FooterComponent() {
+  const navigate = useNavigate(); // Hook para la navegación
+
+  const scrollToTopAndNavigate = (path) => {
+    navigate(path);
+    window.scrollTo(0, 0); // Desplaza la ventana hacia arriba
+  };
+
+  const handleLogoClick = () => {
+    navigate('/');
+    window.scrollTo(0, 0); // Desplaza la ventana hacia arriba
+  };
+
   return (
     <footer>
-      <div className="newsletter-section  text-white text-center py-3">
+      <div className="newsletter-section text-white text-center py-3">
         <div className="div-subscribe">
-        <h2 className="">No te pierdas nuestras noticias</h2>
-        <Form inline className="d-flex justify-content-center">
+          <h2 className="">No te pierdas nuestras noticias</h2>
+          <Form inline className="d-flex justify-content-center">
             <Form.Control type="email" placeholder="Ingrese su email" className="email-form mr-2" />
             <Button type="submit" className="btn-subscribe">Suscribirse</Button>
           </Form>
@@ -19,8 +32,8 @@ export default function FooterComponent () {
       <Container fluid className="footer-main py-5">
         <Row>
           <Col lg={3} className="text-center text-lg-left mb-4 mb-lg-0">
-          <div className="footer-logo">
-              <img src="public/images/cebateLogopngBlanco.png" className="d-inline-block align-top" alt="CEBATE" />
+            <div className="footer-logo" onClick={handleLogoClick}>
+              <img src="public/images/cebateLogopngBlanco.png" className="link d-inline-block align-top" alt="CEBATE" />
               <p className="slogan">Más que una marca, una cultura.</p>
             </div>
             <div className="social-icons">
@@ -34,39 +47,53 @@ export default function FooterComponent () {
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
             </div>
-
           </Col>
           <Col lg={3} className="my-4 mb-lg-0">
             <h5 className="text-uppercase text-white fw-bold">Links Útiles</h5>
             <ul className="list-unstyled">
-              <li className="text-white"><a href="#" className="text-reset">Sobre nosotros</a></li>
-              <li className="text-white"><a href="#" className="text-reset">Contacto</a></li>
-              <li className="text-white"><a href="#" className="text-reset">Tienda</a></li>
-              <li className="text-white"><a href="#" className="text-reset">Blog</a></li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/aboutus')}>Sobre nosotros</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/contact')}>Contacto</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/products')}>Tienda</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/blog')}>Blog</span>
+              </li>
             </ul>
           </Col>
           <Col lg={3} className="my-4 mb-lg-0">
             <h5 className="text-uppercase text-white fw-bold">Área del Cliente</h5>
             <ul className="list-unstyled">
-              <li className="text-white"><a href="#" className="text-reset">My Account</a></li>
-              <li className="text-white"><a href="#" className="text-reset">Privacy Policy</a></li>
-              <li className="text-white"><a href="#" className="text-reset">Orders</a></li>
-              <li className="text-white"><a href="#" className="text-reset">My Cart</a></li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/account')}>Mi cuenta</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/privacy-policy')}>Políticas de Privacidad</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/orders')}>Pedidos</span>
+              </li>
+              <li className="text-white custom-margin">
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/cart')}>Mi carrito</span>
+              </li>
             </ul>
           </Col>
           <Col lg={3} className='mt-4'>
             <h5 className="text-uppercase text-white fw-bold">Más Información</h5>
             <ul className="list-unstyled">
-              <li className="text-white">Contactanos por cualquier consulta</li>
-              <li className="text-white"><FontAwesomeIcon icon={faEnvelope} className="mr-2" />info@cebate.com.uy</li>
+              <li className="text-white custom-margin">Contáctanos por cualquier consulta</li>
+              <li className="text-white custom-margin"><FontAwesomeIcon icon={faEnvelope} className="mr-2" />info@cebate.com.uy</li>
             </ul>
             <div className="payment-icons">
-              <img src="public\images\mediospago.png" alt="medios de pago" className="img-fluid mr-2" />
-              </div>
+              <img src="public/images/mediospago.png" alt="medios de pago" className="img-fluid mr-2" />
+            </div>
           </Col>
         </Row>
       </Container>
     </footer>
-   
   );
 }
