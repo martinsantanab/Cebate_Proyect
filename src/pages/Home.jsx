@@ -59,78 +59,78 @@ const items = [
   },
 ];
 
-const productos = [
-  {
-    id: 1,
-    nombre: "Termo Cebala 1lt [min. 10 unidades]",
-    precio: 1889,
-    imagen: "/path/to/image1.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 2,
-    nombre: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
-    precio: 990,
-    imagen: "/path/to/image2.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 3,
-    nombre: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
-    precio: 990,
-    imagen: "/path/to/image3.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 4,
-    nombre: "Bombilla Acero Inoxidable Premium [Negro]",
-    precio: 790,
-    imagen: "/path/to/image4.jpg",
-    categoria: "Bombillas",
-  },
-  {
-    id: 5,
-    nombre: "Mate Acero Inoxidable Premium [Blanco]",
-    precio: 990,
-    imagen: "/path/to/image5.jpg",
-    categoria: "Mates",
-  },
-  {
-    id: 6,
-    nombre: "Mate Acero Inoxidable Premium [Negro]",
-    precio: 990,
-    imagen: "/path/to/image6.jpg",
-    categoria: "Mates",
-  },
-  {
-    id: 7,
-    nombre: "Termo Cebala 1lt",
-    precio: 1750,
-    imagen: "/path/to/image7.jpg",
-    categoria: "Termos",
-  },
-  {
-    id: 8,
-    nombre: "Matera Bamboo",
-    precio: 1700,
-    imagen: "/path/to/image8.jpg",
-    categoria: "Materas",
-  },
-  {
-    id: 9,
-    nombre: "Matera Cartera Zaira",
-    precio: 2960,
-    imagen: "/path/to/image9.jpg",
-    categoria: "Carteras",
-  },
-  {
-    id: 10,
-    nombre: "Mate De Cerámica Forrado",
-    precio: 4900,
-    imagen: "/path/to/image10.jpg",
-    categoria: "Mates",
-  },
-];
+// const productos = [
+//   {
+//     id: 1,
+//     nombre: "Termo Cebala 1lt [min. 10 unidades]",
+//     precio: 1889,
+//     imagen: "/path/to/image1.jpg",
+//     categoria: "Regalos Empresariales",
+//   },
+//   {
+//     id: 2,
+//     nombre: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
+//     precio: 990,
+//     imagen: "/path/to/image2.jpg",
+//     categoria: "Regalos Empresariales",
+//   },
+//   {
+//     id: 3,
+//     nombre: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
+//     precio: 990,
+//     imagen: "/path/to/image3.jpg",
+//     categoria: "Regalos Empresariales",
+//   },
+//   {
+//     id: 4,
+//     nombre: "Bombilla Acero Inoxidable Premium [Negro]",
+//     precio: 790,
+//     imagen: "/path/to/image4.jpg",
+//     categoria: "Bombillas",
+//   },
+//   {
+//     id: 5,
+//     nombre: "Mate Acero Inoxidable Premium [Blanco]",
+//     precio: 990,
+//     imagen: "/path/to/image5.jpg",
+//     categoria: "Mates",
+//   },
+//   {
+//     id: 6,
+//     nombre: "Mate Acero Inoxidable Premium [Negro]",
+//     precio: 990,
+//     imagen: "/path/to/image6.jpg",
+//     categoria: "Mates",
+//   },
+//   {
+//     id: 7,
+//     nombre: "Termo Cebala 1lt",
+//     precio: 1750,
+//     imagen: "/path/to/image7.jpg",
+//     categoria: "Termos",
+//   },
+//   {
+//     id: 8,
+//     nombre: "Matera Bamboo",
+//     precio: 1700,
+//     imagen: "/path/to/image8.jpg",
+//     categoria: "Materas",
+//   },
+//   {
+//     id: 9,
+//     nombre: "Matera Cartera Zaira",
+//     precio: 2960,
+//     imagen: "/path/to/image9.jpg",
+//     categoria: "Carteras",
+//   },
+//   {
+//     id: 10,
+//     nombre: "Mate De Cerámica Forrado",
+//     precio: 4900,
+//     imagen: "/path/to/image10.jpg",
+//     categoria: "Mates",
+//   },
+// ];
 
 const principalProduct = {
   price: 2151,
@@ -156,7 +156,14 @@ function Home() {
     const getProducts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/products");
-        setProducts(response.data);
+
+        const parsedProducts = response.data.map(product => ({
+          ...product,
+          picture: JSON.parse(product.picture)
+        }));
+        setProducts(parsedProducts);
+
+        // setProducts(response.data);
       } catch (error) {
         console.error("Error obteniendo los productos:", error);
       }
@@ -272,9 +279,9 @@ function Home() {
           {products.map((product) => (
             <Col key={product.id} md={4} className="mb-4">
               <Card>
-                <Card.Img variant="top" src={product.picture.url[0
+                <Card.Img variant="top" src={product.picture[0].url
                   
-                ]} />
+          } />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>${product.price}</Card.Text>
