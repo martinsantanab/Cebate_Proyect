@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 /* NAVBAR CSS: */
 .custom-navbar {
   margin: 0 15px;
@@ -39,6 +40,8 @@
   width: 24px;
   height: 24px;
 }
+/*FINISH NAVBAR*/
+
 /* ABOUT US CSS: */
 .about-us {
   padding: 20px;
@@ -172,8 +175,8 @@
 }
 .text-align {
   padding: 15px;
-  text-align: left; /* Alinea el texto a la izquierda */
-  align-items: flex-start; /* Alinea los elementos al inicio (por si hay más contenido) */
+  text-align: left; 
+  align-items: flex-start; 
 }
 
 @media (max-width: 768px) {
@@ -193,13 +196,13 @@
 }
 
 .item-card {
-  width: 100%; /* Tamaño fijo de las tarjetas */
-  height: 100%; /* Altura fija, ajusta según necesidad */
+  width: 100%; 
+  height: 100%; 
   position: relative;
   overflow: hidden;
   border: 1px solid #ddd;
   border-radius: 10px;
-  text-align: left; /* Justificación a la izquierda */
+  text-align: left; 
   transition: all 0.3s ease-in-out;
   background-color: white;
 }
@@ -303,7 +306,7 @@
     0,
     0,
     0.3
-  ); /* Añade un overlay oscuro para mejorar la legibilidad del texto */
+  ); 
 }
 
 .principalProduct-info {
@@ -311,7 +314,7 @@
   z-index: 1;
   padding: 20px;
   max-width: 500px;
-  text-align: right; /* Alinea el texto a la derecha */
+  text-align: right; 
   padding-right: 100px;
 }
 
@@ -348,28 +351,34 @@
   display: flex; 
   justify-content: center; 
   align-items: center; 
-  height: 290px; /* Altura ajustada según tus necesidades */
+  height: 295px; 
+  font-family: sans-serif;
+  margin-top: 40px;
+
 }
 
 .div-subscribe {
   max-width: 600px; 
   margin: auto; 
+  font-family: sans-serif;
 }
 
 .newsletter-section h2 {
   font-weight: bold;
   margin-bottom: 30px;
+  font-family: 'poppins', sans-serif;
 }
 
 .newsletter-section .btn-subscribe {
-  background-color: #40e0d0;
+  background-color: #017382;
   border: none;
   color: white;
-  margin-left: 20px;
+  margin-left: 20px !important;
+  margin: auto;
 }
 
 .newsletter-section .btn-subscribe:hover {
-  background-color: #ff7f50;
+  background-color: #ef7655;
 }
 
 .footer-main {
@@ -377,7 +386,9 @@
 }
 
 .footer-main h5 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 24px;
+  font-family: 'poppins', sans-serif;
+  font-size: 1rem;
 }
 
 .footer-logo img {
@@ -389,7 +400,7 @@
   color: #9e9e9e;
   margin-top: 0px;
   text-align: center;
-  font-family: Verdana, Tahoma, sans-serif;
+  font-family: 'poppins',  sans-serif;
 }
 
 .social-icons a {
@@ -404,16 +415,16 @@
   height: 40px; 
   margin-inline: 15px;
   margin-top: 30px;
-}
+  }
 
 .social-icons a:hover {
-  background-color: #ff7f50; 
+  background-color: #ef7655; 
   color: #fff;
 }
 
 .payment-icons img {
   width: 250px;
-  margin-top: -0.7rem;
+  margin-top: -11.2px;
 }
 
 .custom-margin { /* margen entre los textos del footer */
@@ -422,4 +433,135 @@
 }
 .link {
   cursor: pointer; /* Cambia el cursor a una mano */
+ 
 }
+
+/*FINISHI FOOTER*/
+
+/* CONTACT*/
+.contact-page {
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-header { /*div oscuro con titulo*/
+  background-color: #0c0c0c;
+  width: 100%;
+  height: 430px;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.contact-header h2 {
+font-size: 3.75rem;
+font-family: 'poppins';
+font-weight: bold;
+color: white !important;
+}
+
+.contact-info { /*div blanco con info de contacto*/
+  margin-top: -120px;
+  padding: 30px 0;
+  background: #fff;
+  border-radius: 10px;
+  margin-bottom: 60px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.contact-info h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.info-card {
+  text-align: center;
+  padding: 20px;
+}
+.info-card p {
+  font-size: 1rem;
+  margin: auto;
+  color: #4d5d6d;
+}
+.info-icon {
+  color: #17a2b8;
+  margin-bottom: 10px;
+}
+
+.contact-map-form { /*div con mapa y formulario*/
+  margin-top: 30px;
+  border-radius: 10px;
+  padding-top: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 25px;
+}
+
+.contact-map-form h2 {
+  margin-bottom: 5px;
+  font-size: 2rem;
+  font-family: 'poppins';
+  font-weight: bold;
+}
+.contact-map-form p {
+  font-family: 'poppins';
+  color: #4d5d6d;
+  font-size: 0.9rem;
+}
+.contact-map-form form {
+  font-family: sans-serif;
+  font-size: 0.7rem;
+}
+
+.contact-map-form form .form-control::placeholder {
+  font-size: 0.9rem; 
+  color: #abb8c3; 
+}
+
+.contact-map-form form .btn-primary {
+  margin-top: 40px;
+  background-color: #017382;
+  border: none;
+  transition: background-color 0.3s ease; 
+}
+
+.contact-map-form form .btn-primary:hover {
+  background-color: #ef7655; 
+}
+
+.trending-title {
+  margin-top: 50px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.trending-product {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.trending-product .product-image {
+  max-width: 100%;
+  height: 250px;
+  margin-bottom: 10px;
+  }
+
+.trending-product h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.trending-product p {
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+.trending-product .btn-secondary {
+  background-color: #abb8c3; 
+  transition: background-color 0.3s ease; 
+  border: none;
+}
+
+.trending-product .btn-secondary:hover {
+  background-color: #ef7655; 
+}
+
+/*FINISHI CONTACT*/
+
