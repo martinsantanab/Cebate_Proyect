@@ -157,9 +157,9 @@ function Home() {
       try {
         const response = await axios.get("http://localhost:3000/products");
 
-        const parsedProducts = response.data.map(product => ({
+        const parsedProducts = response.data.map((product) => ({
           ...product,
-          picture: JSON.parse(product.picture)
+          picture: JSON.parse(product.picture),
         }));
         setProducts(parsedProducts);
 
@@ -279,9 +279,7 @@ function Home() {
           {products.map((product) => (
             <Col key={product.id} md={4} className="mb-4">
               <Card>
-                <Card.Img variant="top" src={product.picture[0].url
-                  
-          } />
+                <Card.Img variant="top" src={product.picture[0].url} />
                 <Card.Body>
                   <Card.Title>{product.name}</Card.Title>
                   <Card.Text>${product.price}</Card.Text>
