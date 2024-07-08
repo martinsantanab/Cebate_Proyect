@@ -40,6 +40,64 @@
   width: 24px;
   height: 24px;
 }
+
+@media (max-width: 991.98px) {
+  .custom-navbar .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0.75) !important; 
+    padding: 20px; 
+    border-radius: 0; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999; 
+    overflow-y: auto; 
+    border: none;
+    height: 400px;
+  }
+
+  .custom-navbar .navbar-nav {
+    width: 100%;
+    flex-direction: column;
+    text-align: left; 
+    margin-top: 100px;
+  }
+
+  .custom-navbar .navbar-nav .nav-link {
+    color: white !important;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ddd; 
+  }
+
+  .custom-navbar .navbar-nav .nav-link:hover {
+    color: #017382 !important;
+  }
+
+  .custom-navbar .navbar-nav .nav-link:last-child {
+    border-bottom: none; 
+  }
+
+  .custom-navbar .navbar-toggler {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10000; 
+    border: none;
+    margin: auto;
+    padding-inline: 10px;
+    transition: color 0.3s;
+    margin-top: 30px;
+    background-color: #8b8b8b;    
+  }
+  
+    .custom-navbar .navbar-toggler:focus {
+    box-shadow: none; 
+  }
+  .custom-navbar .navbar-icons {
+    display: none; 
+  }
+}
 /*FINISH NAVBAR*/
 
 /* ABOUT US CSS: */
@@ -148,11 +206,11 @@
 }
 
 .category-card.hover-celeste:hover {
-  background-color: #00bfff;
+  background-color: #017382;
 }
 
 .category-card.hover-amarillo:hover {
-  background-color: #ffeb3b;
+  background-color: #fcb900;
 }
 
 .category-card.hover-gris:hover {
@@ -187,6 +245,7 @@
 
 /* SECCIÓN DE DATOS EN HOME */
 
+
 .items-section {
   padding: 40px 0;
 }
@@ -212,11 +271,11 @@
 }
 
 .item-card.hover-celeste:hover {
-  background-color: #00bfff;
-}
+  background-color: #00d084;
+  }
 
 .item-card.hover-amarillo:hover {
-  background-color: #ffeb3b;
+  background-color: #fcb900;
 }
 
 .item-card.hover-gris:hover {
@@ -225,6 +284,10 @@
 
 .item-info {
   padding: 15px;
+}
+.item-info:hover {
+  padding: 15px;
+  color: white;
 }
 
 .item-title {
@@ -235,12 +298,16 @@
 .item-description {
   color: #666;
 }
+.item-description:hover {
+  color: #fbf9f9;
+}
 
 @media (max-width: 768px) {
   .item {
     margin-bottom: 20px;
   }
 }
+
 
 /* AMAZON FINDS SECTION */
 
@@ -444,6 +511,76 @@
 }
 .link:hover {
   color: #017382 !important; 
+}
+
+@media (max-width: 992px) {
+  .footer-main .text-center-lg-left {
+    text-align: center !important;
+  }
+
+  .footer-main .text-center-lg-left .my-4 {
+    margin-bottom: 20px !important;
+  }
+  .footer-main h5{
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-main .text-center-lg-left {
+    text-align: center !important;
+  }
+
+  .footer-main .text-center-lg-left .my-4 {
+    margin-bottom: 20px !important;
+  }
+
+  .footer-main .list-unstyled {
+    text-align: center;
+  }
+
+  .footer-main .payment-icons {
+    text-align: center;
+  }
+  .footer-main h5{
+    text-align: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-main .social-icons {
+    text-align: center;
+  }
+
+  .footer-main .social-icons a {
+    margin-right: 10px;
+  }
+
+  .footer-main .payment-icons {
+    text-align: center;
+  }
+  .footer-main h5{
+    text-align: center;
+  }
+  .newsletter-section {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .newsletter-section .div-subscribe {
+    max-width: 100%;
+  }
+
+  .newsletter-section .email-form {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .newsletter-section .btn-subscribe {
+    width: 100%;
+    margin-left: 0 !important;
+  }
 }
 
 /*FINISHI FOOTER*/
