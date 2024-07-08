@@ -7,6 +7,10 @@ import '../App.css';
 
 export default function FooterComponent() {
   const navigate = useNavigate(); 
+  
+  const notEnabledClick = () => {
+    alert('Esta página aún no está disponible, gracias por su paciencia');
+  };
 
   const scrollToTopAndNavigate = (path) => {
     navigate(path);
@@ -52,16 +56,16 @@ export default function FooterComponent() {
             <h5 className="text-uppercase text-white fw-bold">Links Útiles</h5>
             <ul className="list-unstyled">
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/aboutus')}>Sobre nosotros</span>
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/sobre-nosotros')}>Sobre nosotros</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/contact')}>Contacto</span>
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/contacto')}>Contacto</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/products')}>Tienda</span>
+                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/productos')}>Productos</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/blog')}>Blog</span>
+                <span className="text-reset link" onClick={notEnabledClick}>Blog</span>
               </li>
             </ul>
           </Col>
@@ -69,16 +73,16 @@ export default function FooterComponent() {
             <h5 className="text-uppercase text-white fw-bold">Área del Cliente</h5>
             <ul className="list-unstyled">
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/account')}>Mi cuenta</span>
+                <span className="text-reset link" onClick={notEnabledClick}>Mi cuenta</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/privacy-policy')}>Políticas de Privacidad</span>
+                <span className="text-reset link" onClick={notEnabledClick}>Políticas de Privacidad</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/orders')}>Pedidos</span>
+                <span className="text-reset link" onClick={notEnabledClick}>Pedidos</span>
               </li>
               <li className="text-white custom-margin">
-                <span className="text-reset link" onClick={() => scrollToTopAndNavigate('/cart')}>Mi carrito</span>
+                <span className="text-reset link" onClick={notEnabledClick}>Mi carrito</span>
               </li>
             </ul>
           </Col>
