@@ -58,20 +58,20 @@ export default function NavbarComponent() {
                 Inicio
               </Nav.Link>
               <Nav.Link
-                className={`nav-link ${activeLink === '/products' ? 'active' : ''} link`}
-                onClick={() => scrollToTopAndNavigate('/products')}
+                className={`nav-link ${activeLink === '/productos' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/productos')}
               >
                 Productos
               </Nav.Link>
               <Nav.Link
-                className={`nav-link ${activeLink === '/aboutus' ? 'active' : ''} link`}
-                onClick={() => scrollToTopAndNavigate('/aboutus')}
+                className={`nav-link ${activeLink === '/sobre-nosotros' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/sobre-nosotros')}
               >
                 Sobre Nosotros
               </Nav.Link>
               <Nav.Link
-                className={`nav-link ${activeLink === '/contact' ? 'active' : ''} link`}
-                onClick={() => scrollToTopAndNavigate('/contact')}
+                className={`nav-link ${activeLink === '/contacto' ? 'active' : ''} link`}
+                onClick={() => scrollToTopAndNavigate('/contacto')}
               >
                 Contacto
               </Nav.Link>

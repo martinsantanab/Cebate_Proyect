@@ -1,80 +1,125 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
+import { useState, useEffect } from 'react';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 const products = [
   {
-    id: 1,
-    nombre: "Termo Cebala 1lt [min. 10 unidades]",
-    precio: 1889,
-    imagen: "/path/to/image1.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 2,
-    nombre: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
-    precio: 990,
-    imagen: "/path/to/image2.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 3,
-    nombre: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
-    precio: 990,
-    imagen: "/path/to/image3.jpg",
-    categoria: "Regalos Empresariales",
-  },
-  {
-    id: 4,
-    nombre: "Bombilla Acero Inoxidable Premium [Negro]",
-    precio: 790,
-    imagen: "/path/to/image4.jpg",
-    categoria: "Bombillas",
-  },
-  {
-    id: 5,
-    nombre: "Mate Acero Inoxidable Premium [Blanco]",
-    precio: 990,
-    imagen: "/path/to/image5.jpg",
-    categoria: "Mates",
-  },
-  {
-    id: 6,
-    nombre: "Mate Acero Inoxidable Premium [Negro]",
-    precio: 990,
-    imagen: "/path/to/image6.jpg",
-    categoria: "Mates",
-  },
-  {
-    id: 7,
-    nombre: "Termo Cebala 1lt",
-    precio: 1750,
-    imagen: "/path/to/image7.jpg",
-    categoria: "Termos",
-  },
-  {
-    id: 8,
-    nombre: "Matera Bamboo",
-    precio: 1700,
-    imagen: "/path/to/image8.jpg",
-    categoria: "Materas",
-  },
-  {
-    id: 9,
-    nombre: "Matera Cartera Zaira",
-    precio: 2960,
-    imagen: "/path/to/image9.jpg",
-    categoria: "Carteras",
-  },
-  {
-    id: 10,
-    nombre: "Mate De Cerámica Forrado",
-    precio: 4900,
-    imagen: "/path/to/image10.jpg",
-    categoria: "Mates",
-  },
-];
+  id: 1,
+      name: "Termo Cebala 1lt [min. 10 unidades]",
+      price: 1889,
+      image: "/public/images/termo.1.png",
+      categories: "Regalos Empresariales",
+      stock: 10,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: true
+    },
+    {
+      id: 2,
+      name: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
+      price: 990,
+      image: "/public/images/mate.1.png",
+      categories: "Regalos Empresariales",
+      stock: 15,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: false
+    },
+    {
+      id: 3,
+      name: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
+      price: 990,
+      image: "/public/images/mate-blanco.jpg",
+      categories: "Regalos Empresariales",
+      stock: 15,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: false
+    },
+    {
+      id: 4,
+      name: "Bombilla Acero Inoxidable Premium [Negro]",
+      price: 790,
+      image: "/public/images/bombillanegra.jpg",
+      categories: "Bombillas",
+      stock: 5,
+      onSale: true,
+      oldPrice: 890,
+      hasOptions: false
+    },
+    {
+      id: 5,
+      name: "Mate Acero Inoxidable Premium [Blanco]",
+      price: 990,
+      image: "/public/images/mate-blanco.jpg",
+      categories: "Mates",
+      stock: 20,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: false
+    },
+    {
+      id: 6,
+      name: "Mate Acero Inoxidable Premium [Negro]",
+      price: 990,
+      image: "/public/images/mate.1.png",
+      categories: "Mates",
+      stock: 15,
+      onSale: true,
+      oldPrice: 1090,
+      hasOptions: false
+    },
+    {
+      id: 7,
+      name: "Termo Cebala 1lt",
+      price: 1750,
+      image: "/public/images/termo.1.png",
+      categories: "Termos",
+      stock: 10,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: false
+    },
+    {
+      id: 8,
+      name: "Matera Bamboo",
+      price: 1700,
+      image: "/public/images/matera-cuero-cebala.webp",
+      categories: "Materas",
+      stock: 8,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: true
+    },
+    {
+      id: 9,
+      name: "Matera Cartera Zaira",
+      price: 2960,
+      image: "/public/images/Matera-Cartera-Zaira.webp",
+      categories: "Carteras",
+      stock: 12,
+      onSale: true,
+      oldPrice: 3290,
+      hasOptions: false
+    },
+    {
+      id: 10,
+      name: "Mate De Cerámica Forrado",
+      price: 490,
+      image: "/public/images/mate-de-ceramica.webp",
+      categories: "Mates",
+      stock: 18,
+      onSale: false,
+      oldPrice: null,
+      hasOptions: true
+    }
+  ];
 
-function Products() {
+
+export default function Products() {
+  useEffect(() => {
+    document.title = "Productos | cebate - La Marca del Mate";
+  }, []);
+
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('');
@@ -84,19 +129,19 @@ function Products() {
 
     if (searchTerm) {
       updatedProducts = updatedProducts.filter(product =>
-        product.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
     switch (sortOption) {
       case 'priceLowToHigh':
-        updatedProducts.sort((a, b) => a.precio - b.precio);
+        updatedProducts.sort((a, b) => a.price - b.price);
         break;
       case 'priceHighToLow':
-        updatedProducts.sort((a, b) => b.precio - a.precio);
+        updatedProducts.sort((a, b) => b.price - a.price);
         break;
       case 'alphabetical':
-        updatedProducts.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        updatedProducts.sort((a, b) => a.name.localeCompare(b.name));
         break;
       case 'latest':
         updatedProducts.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
@@ -109,78 +154,65 @@ function Products() {
   }, [searchTerm, sortOption]);
 
   return (
-    <Container>
-      <div className="header-image-container">
-        <img src="/public/images/mate.1.png" alt="Mates Header" className="header-image" />
-        <div className="header-title">Mates</div>
-      </div>
-      <Row className="search-sort-container">
-        <Col className="search-container">
-          <Form.Control
-            type="text"
-            placeholder="Buscar productos"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </Col>
-        <Col className="sort-container" md="auto">
-          <span>Ordenar:</span>
-          <Form.Control
-            as="select"
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-          >
-            <option value="">Orden predeterminado</option>
-            <option value="priceLowToHigh">Ordenar por precio: bajo a alto</option>
-            <option value="priceHighToLow">Ordenar por precio: alto a bajo</option>
-            <option value="alphabetical">Ordenar alfabeticamente</option>
-            <option value="latest">Ordenar por los últimos</option>
-          </Form.Control>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <p className='results'>MOSTRANDO LOS {filteredProducts.length} RESULTADOS</p>
-        </Col>
-      </Row>
-      <Row>
-        {filteredProducts.map(product => (
-          <Col key={product.id} sm={6} md={4} lg={3} className="mb-4">
-            <Card className="product-card">
-              <div className="product-image-container">
-                {product.stock === 0 && <div className="badge-stock">Agotado</div>}
-                {product.onSale && <div className="badge-sale">Oferta</div>}
-                <Card.Img
-                  variant="top"
-                  src={product.imagen}
-                  className="product-image"
-                />
-              </div>
-              <Card.Body className="card-body">
-                <Card.Title>{product.nombre}</Card.Title>
-                <Card.Text>
-                  ${product.precio.toFixed(2)}
-                  {product.oldPrice && (
-                    <span className="old-price">${product.oldPrice.toFixed(2)}</span>
-                  )}
-                </Card.Text>
-                <Button variant="primary" className="add-to-cart-button" disabled={product.stock === 0}>
-                  Añadir al carrito
-                </Button>
-                {product.hasOptions && (
-                  <Form.Control as="select">
-                    <option>Seleccionar opciones</option>
-                    <option value="chico">Chico</option>
-                    <option value="grande">Grande</option>
-                  </Form.Control>
-                )}
-              </Card.Body>
-            </Card>
+    <div className="product-page">
+      <header className="product-header">
+        <h2>Productos</h2>
+      </header>
+      <Container className="product-info">
+       
+          <div className="search-container">
+            <Form.Control
+              type="text"
+              placeholder="Buscar productos"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className="sort-container" >
+             <Form.Control
+              as="select"
+              value={sortOption}
+              onChange={(e) => setSortOption(e.target.value)}
+            >
+              <option value="">Orden predeterminado</option>
+              <option value="priceLowToHigh">Ordenar por price: bajo a alto</option>
+              <option value="priceHighToLow">Ordenar por price: alto a bajo</option>
+              <option value="alphabetical">Ordenar alfabeticamente</option>
+              <option value="latest">Ordenar por los últimos</option>
+            </Form.Control>
+          </div>
+        
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <p className="results">MOSTRANDO LOS {filteredProducts.length} RESULTADOS</p>
           </Col>
-        ))}
-      </Row>
-    </Container>
+        </Row>
+        <Row>
+          {filteredProducts.map((product) => (
+            <Col md={3} key={product.id} className="trending-product mb-4">
+              <div className="product-container">
+                <div className="product-image-container">
+                  {product.stock === 0 && <div className="badge-stock">Agotado</div>}
+                  {product.onSale && <div className="badge-sale">OFERTA</div>}
+                  <img src={product.image} alt={product.name} className="product-image" />
+                </div>
+                <div className="product-details">
+                  <h3>{product.name}</h3>
+                  <div className="price-info"></div>
+                  <p>${product.price.toFixed(0)} {product.oldPrice && (
+                    <span className="old-price">${product.oldPrice.toFixed()}</span>
+                  )}</p>
+                  <Button variant="secondary" className="add-to-cart-button">
+                    Añadir al carrito
+                  </Button>                  
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </div>
   );
-};
-
-export default Products;
+}
