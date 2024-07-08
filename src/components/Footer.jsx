@@ -2,20 +2,20 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom'; // Importa useNavigate de react-router-dom
+import { useNavigate } from 'react-router-dom'; 
 import '../App.css';
 
 export default function FooterComponent() {
-  const navigate = useNavigate(); // Hook para la navegación
+  const navigate = useNavigate(); 
 
   const scrollToTopAndNavigate = (path) => {
     navigate(path);
-    window.scrollTo(0, 0); // Desplaza la ventana hacia arriba
+    window.scrollTo(0, 0); 
   };
 
   const handleLogoClick = () => {
     navigate('/');
-    window.scrollTo(0, 0); // Desplaza la ventana hacia arriba
+    window.scrollTo(0, 0); 
   };
 
   return (
@@ -86,7 +86,7 @@ export default function FooterComponent() {
             <h5 className="text-uppercase text-white fw-bold">Más Información</h5>
             <ul className="list-unstyled">
               <li className="text-white custom-margin">Contáctanos por cualquier consulta</li>
-              <li className="text-white custom-margin"><FontAwesomeIcon icon={faEnvelope} className="mr-2" />info@cebate.com.uy</li>
+              <li className="text-white custom-margin"><FontAwesomeIcon icon={faEnvelope} className="mr-2" /> info@cebate.com.uy</li>
             </ul>
             <div className="payment-icons">
               <img src="public/images/mediospago.png" alt="medios de pago" className="img-fluid mr-2" />
