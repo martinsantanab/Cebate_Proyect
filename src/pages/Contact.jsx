@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -15,6 +16,9 @@ const trendingProducts = [
 ];
 
 export default function ContactPage() {
+  useEffect(() => {
+    document.title = "Contacto | cebate - La Marca del Mate";
+  }, []);
   return (
     <div className="contact-page">
       <header className="contact-header">
