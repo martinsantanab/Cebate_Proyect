@@ -685,171 +685,82 @@ color: rgb(255, 255, 255) !important;
 /*FINISHI CONTACT*/
 
 /*PRODUCT CSS*/
-.product-header {
-  background-color: #0c0c0c;
-  width: 100%;
-  height: 430px;
+
+.mt-5 {
+  margin-top: 2rem !important;
+}
+
+.pt-5 {
+  padding-top: 2rem !important;
+}
+
+.carrito {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.resumen {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.producto-carrito {
   display: flex;
-  justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
 }
 
-.product-header h2 {
-  font-size: 3.75rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: bold;
-  color: rgb(255, 255, 255) !important;
+.imagen-producto {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
 }
 
-.product-info {
-  margin-top: 50px;
-  border-radius: 10px;
-  padding-top: 25px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding-bottom: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  
-}
-
-.search-sort-container {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  
-}
-.search-container,
-.sort-container {
-  max-width: 240px;
-}
-
-.search-container input,
-.sort-container select {
-  max-height: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  color: #abb8c3;
-}
-
-.search-container input::placeholder,
-.sort-container select {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  color: #abb8c3;
-  cursor: pointer;
-}
-
-.results {
-  margin-top: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  color: #abb8c3;
-}
-
-.product-container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  transition: transform 0.2s;
-}
-
-.product-container:hover {
-  transform: scale(1.05);
-}
-
-.product-image-container {
-  position: relative;
-  overflow: hidden;
-  height: 250px;
-  max-width: 100%;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;  /* Altura fija para evitar que la imagen se estire verticalmente */
-}
-
-.product-image {
-  max-width: 100%;
-  height: 250px;
-  object-fit: cover; /* Evita que la imagen se deforme y la ajusta al contenedor */
-  transition: transform 0.3s;
-}
-
-.product-container:hover .product-image {
-  transform: scale(1.1);
-}
-
-.badge-stock,
-.badge-sale {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #017382;
-  color: white;
-  padding: 5px;
-  border-radius: 3px;
-  width: 62.4px;
-  height: 28px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
-  padding-inline: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-weight: bold;
-  z-index: 1; /* Asegura que el distintivo esté sobre la imagen */
-}
-
-.product-details {
+.detalles-producto {
   flex-grow: 1;
 }
 
-.product-details h3 {
-  font-size: 1rem;
-  font-weight: bold;
-  overflow: hidden;
-  height: 3rem;
+.cantidad-producto {
+  display: flex;
+  align-items: center;
 }
 
-.product-details p {
-  font-weight: bold;
-  font-size: 1rem;
+.btn-cantidad, .btn-eliminar {
+  margin: 0 5px;
 }
 
-.add-to-cart-button {
-  background-color: #f3f5f7; 
-  transition: background-color 0.3s ease; 
-  border: none;
+.form-cupon {
+  display: flex;
+  align-items: center;
+}
+
+.input-cupon {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.btn-aplicar-cupon, .btn-finalizar-compra {
+  background-color: #f3f5f7;
   color: #000;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
-  height: 45px;
-  padding-inline: 15px;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.add-to-cart-button:hover {
-  background-color: #ef7655; 
-  color: rgb(255, 255, 255);
+.btn-aplicar-cupon:hover, .btn-finalizar-compra:hover {
+  background-color: #ef7655;
+  color: #fff;
 }
 
-.old-price {
-  color: #7b7b7b;
-  text-decoration: line-through;
-  font-size: 0.8rem;
+.resumen-detalle, .delivery-options {
+  margin-bottom: 20px;
 }
 
-/* TRENDINGPRODUCTS CSS*/
-.trending-title {
-  margin-top: 50px;
-  font-weight: bold;
-  font-size: 2rem;
+.radio-delivery {
+  margin-bottom: 10px;
 }
-
-.trending-product {
-  text-align: center;
-  margin-top: 40px;
-}
-
