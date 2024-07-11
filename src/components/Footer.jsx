@@ -1,6 +1,6 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom'; 
 import '../App.css';
@@ -42,13 +42,13 @@ export default function FooterComponent() {
             </div>
             <div className="social-icons">
               <a href="https://www.facebook.com" className="icon-spacing">
-                <FontAwesomeIcon icon={faFacebookF} />
+                <FontAwesomeIcon icon={faFacebook} />
               </a>
               <a href="https://www.instagram.com" className="icon-spacing">
                 <FontAwesomeIcon icon={faInstagram} />
               </a>
               <a href="https://www.linkedin.com" className="icon-spacing">
-                <FontAwesomeIcon icon={faLinkedinIn} />
+                <FontAwesomeIcon icon={faLinkedin} />
               </a>
             </div>
           </Col>

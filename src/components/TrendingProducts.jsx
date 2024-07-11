@@ -14,7 +14,7 @@ export default function TrendingProducts () {
     },
     {
       id: 2,
-      name: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
+      name: "Mate Acero Inoxidable [min. 15 unidades]",
       price: 990,
       image: "/public/images/mate.1.png",
       categories: "Regalos Empresariales",
@@ -24,7 +24,7 @@ export default function TrendingProducts () {
     },
     {
       id: 3,
-      name: "Mate Acero Inoxidable Premium Blanco [min. 15 unidades]",
+      name: "Mate Acero Inoxidable [min. 15 unidades]",
       price: 990,
       image: "/public/images/mate-blanco.jpg",
       categories: "Regalos Empresariales",

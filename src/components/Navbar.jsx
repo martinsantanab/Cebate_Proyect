@@ -96,10 +96,10 @@ export default function NavbarComponent() {
                   <FontAwesomeIcon icon={faShoppingCart} />
                 </Button>
                 <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('es')}>
-                  <img src="public/images/spanishFlag.png" alt="Spanish" width="24" height="24" />
+                  <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f1fa-1f1fe.svg" alt="Spanish" width="24" height="24" />
                 </Button>
                 <Button variant="outline-light" className="border-0 ms-3" onClick={() => changeLanguage('en')}>
-                  <img src="public/images/usaFlag.png" alt="English" width="24" height="24" />
+                  <img src="https://images.emojiterra.com/google/noto-emoji/unicode-15.1/color/svg/1f1ec-1f1e7.svg" alt="English" width="24" height="24" />
                 </Button>
               </div>
             </Nav>
