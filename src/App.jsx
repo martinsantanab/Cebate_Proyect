@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Carrito from "./pages/Carrito";
-import Checkout from "./pages/Checkout";
 import "./App.css";
+import NavbarComponent from "./components/Navbar";
 
 function App() {
   return (
@@ -20,7 +20,6 @@ function App() {
         <Route path="/Contacto" element={<Contact />} />
         <Route path="/Productos" element={<Products />} />
         <Route path="/Carrito" element={<Carrito />} />
-        <Route path="/Checkout" element={<Checkout />} />
       </Routes>
       <Footer />
     </Router>
