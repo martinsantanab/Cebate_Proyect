@@ -13,15 +13,20 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@splidejs/react-splide": "github:splidejs/react-splide",
+    "@splidejs/splide-extension-auto-scroll": "github:splidejs/splide-extension-auto-scroll",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "install": "^0.13.0",
     "mdb-react-ui-kit": "^8.0.0",
+    "npm": "^10.8.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.3",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-router-bootstrap": "^0.26.2",
-    "react-router-dom": "^6.23.1"
+    "react-router-dom": "^6.23.1",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
