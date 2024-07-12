@@ -7,7 +7,6 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Carrito from "./pages/Carrito";
 import "./App.css";
-import NavbarComponent from "./components/Navbar";
 
 function App() {
   return (

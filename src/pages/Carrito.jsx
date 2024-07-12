@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FaTrash } from 'react-icons/fa';
 
@@ -65,7 +65,7 @@ const Carrito = () => {
   ];
 
   return (
-    <Container fluid className="mt-5 pt-5">
+    <Container fluid className="container-carrito mt-5 pt-5">
       <Row>
         <Col md={8} className="carrito">
           <h2>Carrito de Compras</h2>
