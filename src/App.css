@@ -153,6 +153,18 @@
   padding: 40px 0;
 }
 
+/* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .div1 { grid-area: 1 / 1 / 3 / 3; }
+  .div2 { grid-area: 1 / 3 / 2 / 5; }
+  .div3 { grid-area: 2 / 3 / 3 / 4; }
+  .div4 { grid-area: 2 / 4 / 3 / 5; } */
+
 .category {
   margin-bottom: 20px;
 }
@@ -439,9 +451,15 @@ color: rgb(255, 255, 255) !important;
   color: #4d5d6d;
   font-size: 0.9rem;
 }
+
+
 .contact-map-form form {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
+  input[type="text"] {
+    width: 100%;
+    text-align: left;
+}
 }
 
 .contact-map-form form .form-control::placeholder {
@@ -465,7 +483,6 @@ color: rgb(255, 255, 255) !important;
 .contact-map-form form .btn-primary:hover {
   background-color: #ef7655; 
   color: #ffffff;
-  
 }
 /*FINISHI CONTACT*/
 
@@ -505,7 +522,11 @@ color: rgb(255, 255, 255) !important;
 }
 .search-container,
 .sort-container {
-  max-width: 240px;
+  max-width: 210px;
+  input[type="text"] {
+    width: 100%;
+    text-align: left;
+  }
 }
 
 .search-container input,
@@ -514,6 +535,7 @@ color: rgb(255, 255, 255) !important;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
   color: #abb8c3;
+  text-align: left;
 }
 
 .search-container input::placeholder,
@@ -778,17 +800,14 @@ color: rgb(255, 255, 255) !important;
   margin-bottom: 80px;
 }
 
-.contact-container {
-  padding: 20px;
-}
-
 .contact-container-about {
   font-size: 1rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.contact-button {
+
+.contact-button-about {
   background-color: #017382;
   color: #fff;
   border: none;
@@ -1281,6 +1300,7 @@ input[type="text"] {
     text-align: center;
   }
 }
+
 
 @media (max-width: 768px) {
   .footer-main .text-center-lg-left {

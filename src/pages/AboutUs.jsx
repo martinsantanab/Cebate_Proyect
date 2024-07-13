@@ -85,12 +85,12 @@ export default function AboutUs() {
         <div className="stats">
           <div className="stat">
             <h4>CRECIMIENTO</h4>
-            <p>ADQUIRIMOS Y POTENCIAMOS COMPETENCIAS TÉNICAS Y TRANSVERSALES</p>
+            <p>ADQUIRIMOS Y POTENCIAMOS COMPETENCIAS TÉCNICAS Y TRANSVERSALES</p>
           </div>
           <div className="stat">
             <h4>PROYECTOS FINALES</h4>
             <p>
-              ENTREGAMOS SATIFACTORIAMENTE DOS PROYECTOS FINALES
+              ENTREGAMOS SATISFACTORIAMENTE DOS PROYECTOS FINALES
             </p>
           </div>
           <div className="stat">
@@ -106,7 +106,7 @@ export default function AboutUs() {
           que viaje es mejor cuando estas acompañado, te invitamos a formar
           parte de nuestro camino...</strong>
         </p>
-        <button className="contact-button" onClick={() => window.location.href = '/contacto'}>Contáctanos</button>
+        <button className="contact-button-about" onClick={() => window.location.href = '/contacto'}>Contáctanos</button>
       </Container>
       <Container className="banner-box-anima">
         <div className="video-container-anima">

@@ -53,7 +53,7 @@ export default function NavbarComponent() {
   };
 
   const changeLanguage = () => {
-    toast.warn(`Esta aún está en construcción, gracias por su paciencia.`);
+    toast.warn(`Esta función aún está en construcción, gracias por su paciencia.`);
   };
 
   return (
