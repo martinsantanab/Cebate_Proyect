@@ -321,11 +321,12 @@
   font-size: 3rem;
   font-weight: bold;
   font-family: "Poppins";
+  margin-bottom: 50px;
 }
 
 .text-container p {
   font-size: 1.25rem;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .image-container {
@@ -1304,8 +1305,67 @@ input[type="text"] {
   margin-bottom: 5px;
 }
 
+/*LOGIN CSS*/
+.login-container {
+  padding: 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
 
+.login-section, .register-section {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+}
 
+.login-section h2, .register-section h2 {
+  font-size: 1.5rem;
+  font-family: "Poppins";
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.login-section .form-group, .register-section .form-group {
+  margin-bottom: 15px;
+}
+
+.login-section .forgot-password {
+  display: block;
+  margin-top: 10px;
+  color: #017382;
+  text-decoration: none;
+  margin-top: 30px;
+}
+
+.login-section .forgot-password:hover {
+  text-decoration: underline;
+}
+
+.register-section p {
+  margin: 20px 0;
+}
+
+.register-section a {
+  color: #017382;
+  text-decoration: none;
+}
+
+.register-section a:hover {
+  text-decoration: underline;
+}
+
+.bi-eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .login-section, .register-section {
+    margin: 10px 0;
+  }
+}
 
 
 /* FOOTER CSS: */
