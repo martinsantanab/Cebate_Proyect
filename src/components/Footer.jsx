@@ -28,7 +28,7 @@ export default function FooterComponent() {
 
   return (
     <footer>
-      <div className="newsletter-section text-white text-center py-3">
+      <div className="newsletter-section text-white text-center">
         <div className="div-subscribe">
           <h2 className="">No te pierdas nuestras noticias</h2>
           <Form inline className="d-flex justify-content-center">

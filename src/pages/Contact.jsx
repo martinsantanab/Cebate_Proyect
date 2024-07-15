@@ -27,12 +27,12 @@ export default function ContactPage() {
           <Col md={4} className="info-card">
             <FontAwesomeIcon icon={faPhone} size="2x" className="info-icon" />
             <h3>Whatsapp</h3>
-            <p>+598 91 043 281</p>
+            <p>+598 91 000 000</p>
           </Col>
           <Col md={4} className="info-card">
             <FontAwesomeIcon icon={faEnvelope} size="2x" className="info-icon" />
             <h3>Email</h3>
-            <p>info@cebala.com.uy</p>
+            <p>info@cebate.com.uy</p>
           </Col>
         </Row>
       </Container>

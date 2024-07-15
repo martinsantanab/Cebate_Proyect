@@ -62,7 +62,7 @@ export default function AboutUs() {
               React y Redux
             </h6>
             <p>
-            Comenzamos a trabajar en el backend del proyecto final, creamos la API que sería utilizada para el mismo, incorporando los conocimientos y
+            Comenzamos a trabajar en el backend del proyecto final, creamos la API que sería utilizada para el mismo, incorporando los conocimientos y habilidades aprendidas.
 
             </p>
             </div>
@@ -240,7 +240,7 @@ export default function AboutUs() {
             <h3>Antonella Garelli</h3>
             <h6>Full Stack Web Developer</h6>
             <p>
-              Egresado de la primera generación de ÁNIMA-FINEST Bachillerato
+              Egresada de la primera generación de ÁNIMA-FINEST Bachillerato
               Tecnológico.
             </p>
             <div className="social-icons-aboutus">
