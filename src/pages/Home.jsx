@@ -136,7 +136,7 @@ const principalProduct = {
   price: 2151,
   name: "Matera Pampita",
   description: "La matera que se adapta a cualquier espacio.",
-  image: "/public/images/principalProduct.png",
+  image: "https://cebala.com.uy/wp-content/uploads/2023/06/DSC3728-scaled.jpg",
 };
 
 function Home() {
@@ -242,39 +242,31 @@ function Home() {
           ))}
         </Row>
       </Container>
-      <div className="padding">
-        <Container fluid className="amazon-finds-section">
-          <Row className="justify-content-center">
-            <Col md={10} lg={8} className="content-box">
-              <Row className="align-items-center">
-                <Col md={6} className="text-container">
-                  <h1>Amazon finds</h1>
-                  <p>
-                    Ahora también podés encontrar nuestros más vendidos en
-                    Amazon!
-                  </p>
-                  <Button
-                    variant="light"
-                    href="https://www.amazon.com"
-                    target="_blank"
-                  >
-                    Ver Tienda
-                  </Button>
-                </Col>
-                <Col md={6} className="image-container">
-                  <img
-                    src="/public/images/AmazonFinds.png"
-                    alt="Cebala Product"
-                    className="product-image"
-                  />
-                </Col>
-              </Row>
-            </Col>
-          </Row>
-        </Container>
-      </div>
+      <Container className="amazon-finds-section">
+      <Row className="amazon-content">
+        <Col md={6} className="text-container">
+          <h1>Amazon finds</h1>
+          <p>Ahora también podés encontrar nuestros más vendidos en Amazon!</p>
+          <Button
+            variant="light"
+            href="https://www.amazon.com/stores/Cebala/page/E0CDD41C-0DC9-460D-B785-5488959552A3?ref_=ast_bln"
+            target="_blank"
+          >
+            Ver tienda
+          </Button>
+        </Col>
+        <Col md={6} className="image-container">
+          <img
+            src="/public/images/AmazonFinds.png"
+            alt="Cebala Product"
+            className="product-image"
+          />
+        </Col>
+      </Row>
+    </Container>
+      
       <Container>
-        <h1 className="my-4">Productos destacados</h1>
+        <h1 className="title-products">Productos destacados</h1>
         <Row>
           {products.map((product) => (
             <Col key={product.id} md={4} className="mb-4">
