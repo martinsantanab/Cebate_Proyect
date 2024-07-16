@@ -8,6 +8,8 @@ import {
   faLock,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import DestacadosProducts from '../components/Destacados';
+import Destacados from "../components/Destacados";
 
 // const categories = [
 //   {
@@ -214,7 +216,7 @@ function Home() {
         </div>
       </div>
       <Container className="categories-section">
-        <Row>
+        <Row className="grid-category">
           {categories.map((category, index) => (
             <Col xs={12} md={6} key={index} className="category">
               <div className={`category-card hover-celeste`}>
@@ -267,6 +269,9 @@ function Home() {
       
       <Container>
         <h1 className="title-products">Productos destacados</h1>
+        <div>
+        <Destacados />
+        </div>
         <Row>
           {products.map((product) => (
             <Col key={product.id} md={4} className="mb-4">

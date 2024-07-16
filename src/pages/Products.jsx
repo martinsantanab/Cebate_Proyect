@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import axios from "axios";
-
+import Destacados from "../components/Destacados";
 export default function Products() {
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -122,6 +122,7 @@ export default function Products() {
           </Col>
         </Row>
         <Row>
+        <Destacados />
           {filteredProducts.map((product) => (
             <Col md={3} key={product.id} className="trending-product mb-4">
               <div className="product-container">

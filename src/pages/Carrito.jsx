@@ -1,145 +1,219 @@
-import { useState, useEffect } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { FaTrash } from 'react-icons/fa';
+import { useState } from "react";
+import { FaTrash } from "react-icons/fa";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 
 const Carrito = () => {
-  const orders = [
+  const [productos, setProductos] = useState([
     {
-      id: 2,
-      nombre: "Mate Acero Inoxidable Premium Negro [min. 15 unidades]",
-      precio: 990,
-      imagen: "public/images/mate.1.png",
-      categoria: "Regalos Empresariales",
+      id: 1,
+      nombre: "Mate Acero inoxidable Premium [Negro]",
+      precio: 990.0,
       cantidad: 1,
+      imagen: "/images/mate.1.png",
     },
-  ];
+  ]);
+  const [cupon, setCupon] = useState("");
+  const [envio, setEnvio] = useState(0);
 
-  const [productos, setProductos] = useState([]);
-  const [subtotal, setSubtotal] = useState(0);
-  const [descuento, setDescuento] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [cupon, setCupon] = useState('');
-  const [selectedDelivery, setSelectedDelivery] = useState('');
-
-  useEffect(() => {
-    setProductos(orders);
-    actualizarTotales(orders, descuento);
-  }, []);
-
-  const actualizarTotales = (productos, descuento) => {
-    const subtotal = productos.reduce((acc, producto) => acc + producto.precio * producto.cantidad, 0);
-    const total = subtotal - descuento;
-    setSubtotal(subtotal);
-    setTotal(total);
-  };
-
-  const manejarCantidad = (id, cantidad) => {
-    const nuevosProductos = productos.map(producto => {
-      if (producto.id === id) {
-        return { ...producto, cantidad: producto.cantidad + cantidad };
-      }
-      return producto;
-    }).filter(producto => producto.cantidad > 0);
-    setProductos(nuevosProductos);
-    actualizarTotales(nuevosProductos, descuento);
-  };
-
-  const manejarCupon = () => {
-    if (cupon === 'ANIMA') {
-      const descuento = subtotal * 0.5;
-      setDescuento(descuento);
-      actualizarTotales(productos, descuento);
-    } else {
-      setDescuento(0);
-      actualizarTotales(productos, 0);
+  const aplicarCupon = () => {
+    if (cupon === "DESCUENTO10") {
+      const descuento = 0.1; // 10% de descuento
+      setProductos(
+        productos.map((p) => ({ ...p, precio: p.precio * (1 - descuento) }))
+      );
+    } else if (cupon === "ANIMA") {
+      setProductos(productos.map((p) => ({ ...p, precio: p.precio * 0.5 })));
     }
   };
 
-  const deliveryOptions = [
-    "Recogida en el local",
-    "UES Estandar - 24 Horas: $ 190,00",
-    "Entrega en Pick Up: $ 190,00",
-    "Entrega Pick Up Interior - Xpres: $ 220,00",
-    "UES 3 Dias - 72 Horas Interior: $ 220,00",
-  ];
+  const actualizarCantidad = (id, delta) => {
+    setProductos(
+      productos.map((p) =>
+        p.id === id ? { ...p, cantidad: Math.max(1, p.cantidad + delta) } : p
+      )
+    );
+  };
+
+  const calcularSubtotal = () => {
+    return productos
+      .reduce((total, p) => total + p.precio * p.cantidad, 0)
+      .toFixed(2);
+  };
+
+  const manejarCambioEnvio = (costoEnvio) => {
+    setEnvio(costoEnvio);
+  };
+
+  const eliminarProducto = (id) => {
+    setProductos(productos.filter((p) => p.id !== id));
+  };
+
+  const subtotal = calcularSubtotal();
+  const total = (parseFloat(subtotal) + parseFloat(envio)).toFixed(2);
 
   return (
-    <Container fluid className="container-carrito mt-5 pt-5">
-      <Row>
-        <Col md={8} className="carrito">
-          <h2>Carrito de Compras</h2>
-          {productos.map((producto) => (
-            <div key={producto.id} className="producto-carrito mb-3">
-              <img src={producto.imagen} alt={producto.nombre} className="imagen-producto" />
-              <div className="detalles-producto">
-                <h5>{producto.nombre}</h5>
-                <p>{producto.categoria}</p>
-                <p>Precio: ${producto.precio}</p>
-                <div className="cantidad-producto">
-                  <Button
-                    variant="outline-secondary"
-                    className="btn-cantidad"
-                    onClick={() => manejarCantidad(producto.id, -1)}
-                  >
-                    -
-                  </Button>
-                  <span>{producto.cantidad}</span>
-                  <Button
-                    variant="outline-secondary"
-                    className="btn-cantidad"
-                    onClick={() => manejarCantidad(producto.id, 1)}
-                  >
-                    +
-                  </Button>
-                  <Button
-                    variant="outline-danger"
-                    className="btn-eliminar"
-                    onClick={() => manejarCantidad(producto.id, -producto.cantidad)}
-                  >
-                    <FaTrash />
-                  </Button>
-                </div>
-              </div>
-            </div>
-          ))}
-          <Form inline className="form-cupon">
-            <Form.Control
+    <div className="carrito-container">
+      <div className="carrito-row">
+        <div className="carrito-col-md-8">
+          <h4 className="carrito-titulo">Carrito de compras</h4>
+          <div className="carrito-table-responsive">
+            <table className="carrito-table">
+              <thead>
+                <tr>
+                  <th className="carrito-subtitulo">Producto</th>
+                  <th className="carrito-subtitulo">Cantidad</th>
+                  <th className="carrito-subtitulo">Subtotal</th>
+                </tr>
+              </thead>
+              <tbody>
+                {productos.map((producto) => (
+                  <tr key={producto.id}>
+                    <td>
+                      <img
+                        src={producto.imagen}
+                        alt={producto.nombre}
+                        className="carrito-img-fluid"
+                        width="100"
+                      />
+                      <span>{producto.nombre}</span>
+                    </td>
+                    <td>
+                      <div className="carrito-d-flex carrito-align-items-center">
+                        <button
+                          onClick={() => actualizarCantidad(producto.id, -1)}
+                          className="carrito-btn carrito-btn-light"
+                        >
+                          -
+                        </button>
+                        <input
+                          type="text"
+                          value={producto.cantidad}
+                          readOnly
+                          className="carrito-form-control carrito-text-center carrito-mx-2"
+                          style={{ width: "50px" }}
+                        />
+                        <button
+                          onClick={() => actualizarCantidad(producto.id, 1)}
+                          className="carrito-btn carrito-btn-light"
+                        >
+                          +
+                        </button>
+                      </div>
+                    </td>
+                    <td>${(producto.precio * producto.cantidad).toFixed(2)}</td>
+                    <td>
+                      <button
+                        onClick={() => eliminarProducto(producto.id)}
+                        className="carrito-btn carrito-btn-link carrito-text-danger"
+                      >
+                        <FaTrash />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <div className="carrito-input-group carrito-mb-3">
+            <input
               type="text"
-              placeholder="Cupón de descuento"
+              className="carrito-form-control"
+              placeholder="Código del cupón"
               value={cupon}
               onChange={(e) => setCupon(e.target.value)}
-              className="input-cupon"
             />
-            <Button onClick={manejarCupon} className="btn-aplicar-cupon">Aplicar</Button>
-          </Form>
-        </Col>
-        <Col md={4} className="resumen">
-          <h2>Resumen del Pedido</h2>
-          <div className="resumen-detalle">
-            <p>Subtotal: ${subtotal}</p>
-            <p>Descuento: ${descuento}</p>
-            <h5>Total: ${total}</h5>
+            <button className="carrito-btn carrito-btn-primary" onClick={aplicarCupon}>
+              Aplicar el cupón
+            </button>
           </div>
-          <div className="delivery-options">
-            <h4>Opciones de Envío</h4>
-            {deliveryOptions.map((option, index) => (
-              <Form.Check
-                key={index}
+        </div>
+        <div className="carrito-col-md-4">
+          <div className="carrito-border carrito-p-3 carrito-resumen">
+            <h4 className="carrito-titulo">Totales del carrito</h4>
+            <p className="carrito-subtotal">Subtotal: ${subtotal}</p>
+            <h5 className="carrito-subtitulo">Envío</h5>
+            <div className="carrito-form-check">
+              <input
+                className="carrito-form-check-input"
                 type="radio"
-                label={option}
-                name="delivery"
-                value={option}
-                onChange={(e) => setSelectedDelivery(e.target.value)}
-                checked={selectedDelivery === option}
-                className="radio-delivery"
+                name="envio"
+                id="recogida"
+                value="0"
+                onChange={() => manejarCambioEnvio(0)}
               />
-            ))}
+              <label className="carrito-form-check-label" htmlFor="recogida">
+                Recogida local
+              </label>
+            </div>
+            <div className="carrito-form-check">
+              <input
+                className="carrito-form-check-input"
+                type="radio"
+                name="envio"
+                id="estandar"
+                value="190"
+                onChange={() => manejarCambioEnvio(190)}
+              />
+              <label className="carrito-form-check-label" htmlFor="estandar">
+                UES Estandar - 24 Horas: $ 190,00
+              </label>
+            </div>
+            <div className="carrito-form-check">
+              <input
+                className="carrito-form-check-input"
+                type="radio"
+                name="envio"
+                id="pickup"
+                value="190"
+                onChange={() => manejarCambioEnvio(190)}
+              />
+              <label className="carrito-form-check-label" htmlFor="pickup">
+                Entrega en Pick Up: $ 190,00
+              </label>
+            </div>
+            <div className="carrito-form-check">
+              <input
+                className="carrito-form-check-input"
+                type="radio"
+                name="envio"
+                id="xpres"
+                value="220"
+                onChange={() => manejarCambioEnvio(220)}
+              />
+              <label className="carrito-form-check-label" htmlFor="xpres">
+                Entrega Pick Up Interior - Xpres: $ 220,00
+              </label>
+            </div>
+            <div className="carrito-form-check">
+              <input
+                className="carrito-form-check-input"
+                type="radio"
+                name="envio"
+                id="3dias"
+                value="220"
+                onChange={() => manejarCambioEnvio(220)}
+              />
+              <label className="carrito-form-check-label" htmlFor="3dias">
+                UES 3 Dias - 72 Horas Interior: $ 220,00
+              </label>
+            </div>
+            <p className="carrito-info">
+              Las opciones de envío se actualizarán durante el pago.
+            </p>
+            <h5 className="carrito-total">Total: ${total}</h5>
+            <a
+              href="http://localhost:5173/Checkout"
+              className="carrito-btn carrito-btn-primary carrito-w-100 carrito-mt-3"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Finalizar compra
+            </a>
           </div>
-          <Button className="btn-finalizar-compra">Finalizar Compra</Button>
-        </Col>
-      </Row>
-    </Container>
+        </div>
+      </div>
+    </div>
   );
 };
 
