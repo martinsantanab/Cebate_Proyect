@@ -132,10 +132,10 @@ export default function FooterComponent() {
               Más Información
             </h5>
             <ul className="list-unstyled">
-              <li className="text-white custom-margin">
+              <li className="custom-margin">
                 Contáctanos por cualquier consulta
               </li>
-              <li className="text-white custom-margin">
+              <li className="custom-margin">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2" />{" "}
                 info@cebate.com.uy
               </li>
